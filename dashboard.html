@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sq">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrimi i Dokumenteve</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="sfondi-ambiental"></div>
+  <nav class="navigimi-kryesor">
+    <a href="index.html" class="logo">NexusCloud</a>
+    <div class="meny-toggle" id="meny-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="lidhjet-navigimit" id="lidhjet-navigimit">
+      <a href="index.html" class="lidhja-kthyese">Ballina</a>
+      <a href="dashboard.html" class="lidhja-kthyese">Dashboard</a>
+      <a href="contact.html" class="lidhja-kthyese">Kontakti</a>
+    </div>
+  </nav>
+
+  <main class="paneli-menaxhimit">
+    <header class="koka-panelit">
+      <h1>Hapësira e Administrimit</h1>
+    </header>
+
+    <section class="rrjeti-panelit">
+      <div class="karta-panel qendra-ngarkimit">
+        <h2>Ngarko Dokumentin</h2>
+        <div id="zona-leshimit" class="zona-leshimit">
+          <input type="file" id="dokumenti-hyrja" multiple hidden>
+          <div class="ikona-ngarkimit">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+            </svg>
+          </div>
+          <p>Lëshoni skedarët këtu ose zgjidhni formatet nga pajisja</p>
+          <button id="butoni-shfletimit" class="butoni-dytesor">Ngarko Dokumentet</button>
+        </div>
+
+        <div id="kutia-progresit" class="kutia-progresit i-fshehur">
+          <div class="koka-progresit">
+            <span id="emri-dokumentit" class="teksti-monospaced"></span>
+            <span id="vijushmeria" class="teksti-monospaced"></span>
+          </div>
+          <div class="sfondi-shiritit">
+            <div id="shiriti-progresit" class="shiriti-progresit"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="karta-panel libraria-aseteve">
+        <h2>Arkivi i Dokumenteve</h2>
+        <div id="rrjeti-inventarit" class="rrjeti-inventarit"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fundi-faqes">
+    <div class="permbajtja-fundit">
+      <div class="kredencialet">
+        <h3>NexusCloud</h3>
+        <p>Infrastruktura Supreme për Ruajtjen Digjitale. Të gjitha të drejtat e rezervuara &copy; 2026.</p>
+      </div>
+      <div class="lidhjet-fundit">
+        <a href="index.html">Ballina</a>|
+        <a href="dashboard.html">Dashboard</a>|
+        <a href="contact.html">Qendra e Kontaktit</a>|
+        <a href="privacy.html">Politika e Privatësisë</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sq">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusCloud - Qendra e Kontaktit</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="sfondi-ambiental"></div>
+  <nav class="navigimi-kryesor">
+    <a href="index.html" class="logo">NexusCloud</a>
+    <div class="meny-toggle" id="meny-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="lidhjet-navigimit" id="lidhjet-navigimit">
+      <a href="index.html" class="lidhja-kthyese">Ballina</a>
+      <a href="dashboard.html" class="lidhja-kthyese">Dashboard</a>
+      <a href="contact.html" class="lidhja-kthyese">Kontakti</a>
+    </div>
+  </nav>
+
+  <main class="faqja-info faqja-kontaktit">
+    <header class="koka-info">
+      <h1>Qendra e Kontaktit</h1>
+      <p>Lidhuni drejtpërdrejt me ekipin tonë për kërkesa zhvillimi apo ndihmë operacionale.</p>
+    </header>
+
+    <section class="permbajtja-info">
+      <div class="seksioni-rregullave">
+        <form action="https://formspree.io/f/maqlpgrn" method="POST" class="forma-kontaktit">
+          <div class="fusha-formes">
+            <label for="emri">Emri i Plotë</label>
+            <input type="text" id="emri" name="emri" required>
+          </div>
+          <div class="fusha-formes">
+            <label for="email">Adresa Elektronike</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="fusha-formes">
+            <label for="koncepti">Lloji i Kërkesës</label>
+            <select id="koncepti" name="koncepti" required>
+              <option value="" disabled selected>Zgjidh llojin e kërkesës</option>
+              <option value="Sugjerim">Sugjerim</option>
+              <option value="Koment">Koment</option>
+              <option value="Pyetje Teknike">Pyetje Teknike</option>
+            </select>
+          </div>
+          <div class="fusha-formes">
+            <label for="mesazhi">Përmbajtja</label>
+            <textarea id="mesazhi" name="mesazhi" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="butoni-fillimit mb-0">Dërgo Mesazhin</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fundi-faqes">
+    <div class="permbajtja-fundit">
+      <div class="kredencialet">
+        <h3>NexusCloud</h3>
+        <p>Infrastruktura Supreme për Ruajtjen Digjitale. Të gjitha të drejtat e rezervuara &copy; 2026.</p>
+      </div>
+      <div class="lidhjet-fundit">
+        <a href="index.html">Ballina</a>|
+        <a href="dashboard.html">Dashboard</a>|
+        <a href="contact.html">Qendra e Kontaktit</a>|
+        <a href="privacy.html">Politika e Privatësisë</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
