@@ -4,11 +4,30 @@ const registerForm = document.getElementById('register-form');
 const loginForm = document.getElementById('login-form');
 const resetForm = document.getElementById('reset-form');
 const authMessage = document.getElementById('auth-message');
+const verificationGroup = document.getElementById('verification-code-group');
+const verificationCodeInput = document.getElementById('verification-code');
+const loginButton = document.getElementById('login-button');
+const loginHelperText = document.getElementById('login-helper-text');
+
+let pendingVerificationToken = null;
+let pendingVerificationEmail = null;
 
 function showMessage(msg, isError = false) {
     if (!authMessage) return;
     authMessage.textContent = msg;
     authMessage.className = isError ? 'error' : 'success';
+}
+
+function setLoginVerificationStep(enabled) {
+    if (verificationGroup) verificationGroup.style.display = enabled ? 'block' : 'none';
+    if (verificationCodeInput) verificationCodeInput.required = enabled;
+    if (loginButton) loginButton.textContent = enabled ? 'Verifiko Kodin' : 'Hyr në Llogari';
+
+    if (loginHelperText) {
+        loginHelperText.textContent = enabled
+            ? 'Kontrolloni email-in tuaj dhe shkruani kodin 6-shifror të verifikimit.'
+            : '';
+    }
 }
 
 if (registerForm) {
@@ -22,7 +41,7 @@ if (registerForm) {
             const response = await fetch(`${API_URL}/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ fullName, email, password })
+                body: JSON.stringify({ full_name: fullName, email, password })
             });
             const data = await response.json();
 
@@ -45,20 +64,52 @@ if (loginForm) {
         const password = document.getElementById('password').value;
 
         try {
-            const response = await fetch(`${API_URL}/login`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
-            const data = await response.json();
+            if (pendingVerificationToken) {
+                const code = verificationCodeInput.value.trim();
 
-            if (response.ok) {
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('fullName', data.name);
-                showMessage('Kyçja u krye me sukses! Duke ju ridrejtuar...', false);
-                setTimeout(() => window.location.href = 'dashboard.html', 1000);
+                if (!code) {
+                    showMessage('Shkruani kodin e verifikimit.', true);
+                    return;
+                }
+
+                const response = await fetch(`${API_URL}/verify-login-code`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: pendingVerificationEmail,
+                        code,
+                        verificationToken: pendingVerificationToken
+                    })
+                });
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('fullName', data.name);
+                    pendingVerificationToken = null;
+                    pendingVerificationEmail = null;
+                    showMessage('Kyçja u krye me sukses! Duke ju ridrejtuar...', false);
+                    setTimeout(() => window.location.href = 'dashboard.html', 1000);
+                } else {
+                    showMessage(data.error, true);
+                }
             } else {
-                showMessage(data.error, true);
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await response.json();
+
+                if (response.ok && data.requiresVerification) {
+                    pendingVerificationToken = data.verificationToken;
+                    pendingVerificationEmail = data.email;
+                    setLoginVerificationStep(true);
+                    showMessage(data.message, false);
+                    verificationCodeInput.focus();
+                } else if (!response.ok) {
+                    showMessage(data.error, true);
+                }
             }
         } catch (error) {
             showMessage('Ndodhi një gabim në server.', true);
@@ -71,6 +122,11 @@ if (resetForm) {
         e.preventDefault();
         const email = document.getElementById('email').value;
         const newPassword = document.getElementById('new-password').value;
+
+        if (newPassword.length < 6) {
+            showMessage('Fjalekalimi i ri duhet te kete te pakten 6 karaktere.', true);
+            return;
+        }
 
         try {
             const response = await fetch(`${API_URL}/reset-password`, {
@@ -164,3 +220,4 @@ function updateNavigation() {
 }
 
 document.addEventListener('DOMContentLoaded', updateNavigation);
+document.addEventListener('DOMContentLoaded', () => setLoginVerificationStep(false));
