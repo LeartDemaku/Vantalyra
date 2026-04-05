@@ -20,8 +20,10 @@
     </div>
     <div class="lidhjet-navigimit" id="lidhjet-navigimit">
       <a href="index.html" class="lidhja-kthyese">Ballina</a>
-      <a href="dashboard.html" class="lidhja-kthyese">Dashboard</a>
+      <a href="index.html#sherbimet">Shërbimet</a>|
+      <a href="index.html#si-funksionon">Si Funksionon</a>|
       <a href="contact.html" class="lidhja-kthyese">Kontakti</a>
+      <a href="login.html" class="butoni-kycje">Identifikohu</a>
     </div>
   </nav>
 
@@ -33,20 +35,21 @@
 
     <section class="permbajtja-info">
       <article class="seksioni-rregullave">
-        <h2>Mbrojtja e Skedarëve:</h2>
-        <p>Çdo dokument që ngarkoni transferohet përmes një lidhjeje të sigurt (SSL) për të parandaluar ndërhyrjet gjatë
-          rrugës. Pasi mbërrijnë në sistem, skedarët ruhen në serverë të mbrojtur që garantojnë integritetin e tyre deri
-          në momentin që ju i aksesoni përsëri.</p>
+        <h2>Mbrojtja e Skedarëve dhe Llogarisë:</h2>
+        <p>Ne përdorim standardet më të fundit të sigurisë për të mbrojtur llogarinë tuaj. Fjalëkalimet tuaja ruhen të
+          koduara (hash) në databazën tonë lokale duke përdorur teknologjinë bcrypt, që do të thotë se askush, as ne,
+          nuk mund t'i shohë ato si tekst të thjeshtë. Çdo dokument që ngarkoni është i lidhur në mënyrë unike me ID-në
+          e llogarisë suaj.</p>
 
-        <h2>Stabiliteti i Shërbimit:</h2>
-        <p>Përmes teknologjisë Cloud, ne garantojmë që arkivi juaj të jetë i aksesueshëm në çdo kohë. Infrastruktura
-          jonë siguron që dokumentet tuaja të jenë të mbrojtura nga humbja aksidentale, duke ofruar një shërbim të
-          shpejtë dhe të besueshëm.</p>
+        <h2>Izolimi i të Dhënave:</h2>
+        <p>Përmes sistemit tonë backend të ndërtuar me Node.js dhe SQLite, ne garantojmë izolim të plotë të të dhënave.
+          Kjo do të thotë se vetëm ju mund të shihni dhe menaxhoni dokumentet që keni ngarkuar. Asnjë përdorues tjetër i
+          platformës nuk ka qasje në arkivin tuaj personal në Cloudinary.</p>
 
         <h2>Privatësia juaj, Prioriteti ynë:</h2>
-        <p>Skedarët tuaj ruhen në hapësirën tonë të dedikuar në Cloudinary. Si administratorë të platformës NexusCloud,
-          ne kemi akses teknik në panelin e ruajtjes, por zotohemi rreptësisht që të mos i shpërndajmë, shesim apo
-          përdorim të dhënat tuaja për asnjë qëllim tjetër përveç mirëmbajtjes teknike.</p>
+        <p>NexusCloud mbledh vetëm informacionin bazë të nevojshëm për funksionimin e llogarisë tuaj (Emrin, Email-in).
+          Skedarët tuaj ruhen në infrastrukturën tonë të sigurt dhe ne zotohemi rreptësisht që të mos i shpërndajmë apo
+          përdorim të dhënat tuaja për qëllime reklamimi apo shitjeje tek palët e treta.</p>
       </article>
     </section>
   </main>
@@ -59,12 +62,12 @@
       </div>
       <div class="lidhjet-fundit">
         <a href="index.html">Ballina</a>|
-        <a href="dashboard.html">Dashboard</a>|
         <a href="contact.html">Qendra e Kontaktit</a>|
         <a href="privacy.html">Politika e Privatësisë</a>
       </div>
     </div>
   </footer>
+  <script src="js/auth.js"></script>
   <script src="js/script.js"></script>
 </body>
 
