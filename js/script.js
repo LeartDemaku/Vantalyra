@@ -222,3 +222,20 @@ if (menyToggle && lidhjetNav) {
     });
   });
 }
+
+// --- SISTEMI I ANIMACIONEVE DINAMIKE (SCROLL REVEAL) ---
+const vëzhguesiReveal = new IntersectionObserver((hyrjet) => {
+  hyrjet.forEach(hyrja => {
+    if (hyrja.isIntersecting) {
+      hyrja.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const elementetPërReveal = document.querySelectorAll('[class*="reveal-"]');
+  elementetPërReveal.forEach(el => vëzhguesiReveal.observe(el));
+});
