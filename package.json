@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LeartDemaku/NexusCloud.git"
+    "url": "git+https://github.com/LeartDemaku/Vantalyra.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LeartDemaku/NexusCloud/issues"
+    "url": "https://github.com/LeartDemaku/Vantalyra/issues"
   },
-  "homepage": "https://github.com/LeartDemaku/NexusCloud#readme",
+  "homepage": "https://github.com/LeartDemaku/Vantalyra#readme",
   "description": "",
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.1024.0",

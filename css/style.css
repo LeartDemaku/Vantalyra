@@ -10,8 +10,8 @@
   --tranzicioni: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-#si-funksionon, #sherbimet, .seksioni-udhezues {
-  scroll-margin-top: 150px !important;
+#si-funksionon, #sherbimet, .seksioni-udhezues, .seksioni-kartave {
+  scroll-margin-top: 0px !important;
 }
 
 * {
@@ -300,14 +300,14 @@ body {
 
 .seksioni-kartave {
   min-height: 100vh;
-  padding: 8rem 5vw;
+  padding: 6rem 5vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 3rem;
   max-width: 1600px;
   margin: 0 auto;
-  align-content: start;
-  scroll-margin-top: 120px;
+  align-content: center;
+  scroll-margin-top: 0;
 }
 
 .karta-informuese {
@@ -779,10 +779,48 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
+    width: 85%;
     height: 100vh;
     background: rgba(4, 6, 8, 0.98);
     backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    transition: var(--tranzicioni);
+    z-index: 1050;
+    border-left: 1px solid var(--kufiri-xhama);
+  }
+
+  .lidhjet-navigimit.aktiv {
+    right: 0;
+  }
+
+  .meny-toggle.aktiv span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .meny-toggle.aktiv span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .meny-toggle.aktiv span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .permbajtja-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .permbajtja-hero p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .butoni-fillimit {
+    padding: 1.2rem 2.5rem;
+    font-size: 1rem;
   }
 }
 
@@ -962,6 +1000,35 @@ body {
 
   .karta-udhezues {
     padding: 2.5rem 1.5rem;
+  }
+
+  .seksioni-kartave {
+    padding: 5rem 1.5rem;
+  }
+
+  .karta-informuese {
+    padding: 2rem 1.5rem;
+  }
+
+  .paneli-menaxhimit {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .karta-panel {
+    padding: 1.5rem;
+  }
+
+  .zona-leshimit {
+    padding: 3rem 1rem;
+  }
+
+  .koka-panelit h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .rrjeti-inventarit {
+    grid-template-columns: 1fr;
   }
 
   .dropdown-item {

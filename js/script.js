@@ -1,5 +1,5 @@
 const llogaria = 'ddoagbtbx';
-const profiliNgarkimit = 'nexuscloud_docs';
+const profiliNgarkimit = 'vantalyra_docs';
 
 const zonaLeshimit = document.getElementById('zona-leshimit');
 const inputDokumentit = document.getElementById('dokumenti-hyrja');
@@ -215,7 +215,7 @@ if (menyToggle && lidhjetNav) {
   });
 
   // Mbyllja e menysë kur klikohet një lidhje
-  document.querySelectorAll('.lidhja-kthyese').forEach(lidhje => {
+  document.querySelectorAll('.lidhja-kthyese, .butoni-kycje').forEach(lidhje => {
     lidhje.addEventListener('click', () => {
       menyToggle.classList.remove('aktiv');
       lidhjetNav.classList.remove('aktiv');

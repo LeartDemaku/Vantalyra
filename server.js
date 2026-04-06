@@ -10,7 +10,7 @@ const nodemailer = require('nodemailer');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const JWT_SECRET = process.env.JWT_SECRET || 'nexuscloud_super_secret_key';
+const JWT_SECRET = process.env.JWT_SECRET || 'vantalyra_super_secret_key';
 const VERIFICATION_CODE_TTL_MINUTES = Number(process.env.VERIFICATION_CODE_TTL_MINUTES || 10);
 const VERIFICATION_CODE_MAX_ATTEMPTS = Number(process.env.VERIFICATION_CODE_MAX_ATTEMPTS || 5);
 const EMAIL_SERVICE = process.env.EMAIL_SERVICE;
@@ -130,12 +130,12 @@ function sendLoginVerificationEmail(email, code) {
     return mailTransport.sendMail({
         from: SMTP_FROM,
         to: email,
-        subject: 'Kodi i verifikimit per hyrje ne NexusCloud',
+        subject: 'Kodi i verifikimit per hyrje ne Vantalyra',
         text: `Kodi juaj i verifikimit eshte: ${code}. Ky kod skadon per ${VERIFICATION_CODE_TTL_MINUTES} minuta.`,
         html: `
             <div style="font-family: Arial, sans-serif; color: #111827;">
                 <h2>Kodi i verifikimit</h2>
-                <p>Per te perfunduar hyrjen ne llogarine tuaj ne NexusCloud, perdorni kodin me poshte:</p>
+                <p>Per te perfunduar hyrjen ne llogarine tuaj ne Vantalyra, perdorni kodin me poshte:</p>
                 <p style="font-size: 32px; font-weight: bold; letter-spacing: 6px;">${code}</p>
                 <p>Ky kod skadon per ${VERIFICATION_CODE_TTL_MINUTES} minuta.</p>
                 <p>Nese nuk e keni kerkuar ju kete hyrje, injorojeni kete email.</p>
