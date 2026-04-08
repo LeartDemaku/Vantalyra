@@ -239,3 +239,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const elementetPërReveal = document.querySelectorAll('[class*="reveal-"]');
   elementetPërReveal.forEach(el => vëzhguesiReveal.observe(el));
 });
+
+// --- SISTEMI I INTERAKTIVITETIT HERO ---
+document.addEventListener('mousemove', (e) => {
+  const karta = document.getElementById('karta-interaktive');
+  if (!karta) return;
+
+  const { clientX, clientY } = e;
+  const { innerWidth, innerHeight } = window;
+
+  // Llogaritja e rrotullimit bazuar në pozicionin e miut
+  const xRotation = ((clientY / innerHeight) - 0.5) * 20; // Rrotullim deri ne 10 grade
+  const yRotation = ((clientX / innerWidth) - 0.5) * -20;
+
+  karta.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale3d(1.02, 1.02, 1.02)`;
+  
+  // Lëvizja e shkëlqimit
+  const shkelqimi = karta.querySelector('.shkelqimi-karti');
+  if (shkelqimi) {
+    const xPercent = (clientX / innerWidth) * 100;
+    const yPercent = (clientY / innerHeight) * 100;
+    shkelqimi.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, rgba(255,255,255,0.15) 0%, transparent 60%)`;
+  }
+});
+
+// Kthimi ne gjendje normale kur miu largohet nga dritarja
+document.addEventListener('mouseleave', () => {
+    const karta = document.getElementById('karta-interaktive');
+    if (karta) {
+        karta.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    }
+});

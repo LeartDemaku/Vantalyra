@@ -1,13 +1,15 @@
 :root {
-  --ngjyra-bazike: #040608;
-  --siperfaqja-xhama: rgba(12, 16, 26, 0.55);
-  --kufiri-xhama: rgba(255, 255, 255, 0.05);
-  --teksti-kryesor: #eef2f6;
-  --teksti-dytesor: #7c8ba1;
+  --ngjyra-bazike: #040812;
+  --siperfaqja-xhama: rgba(15, 20, 35, 0.45);
+  --kufiri-xhama: rgba(255, 255, 255, 0.08);
+  --teksti-kryesor: #ffffff;
+  --teksti-dytesor: #a0aec0;
   --theksi-kalter: #00d2ff;
   --theksi-pershtatur: #1a5cff;
-  --fonti-modern: 'Roboto', sans-serif;
-  --tranzicioni: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ngjyra-gradient: linear-gradient(135deg, #00d2ff 0%, #1a5cff 100%);
+  --fond-gradient: radial-gradient(circle at 50% 50%, #0a1128 0%, #040812 100%);
+  --fonti-modern: 'Outfit', 'Inter', 'Roboto', sans-serif;
+  --tranzicioni: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #si-funksionon, #sherbimet, .seksioni-udhezues, .seksioni-kartave {
@@ -32,11 +34,50 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: -1;
-  background: radial-gradient(circle at 50% 0%, rgba(26, 92, 255, 0.15) 0%, rgba(4, 6, 8, 1) 70%);
+  background: var(--fond-gradient);
   overflow: hidden;
+}
+
+.orbs-dekoruese {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: levitimi-orbash 20s infinite alternate;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--theksi-kalter);
+  top: -100px;
+  right: -100px;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--theksi-pershtatur);
+  bottom: -50px;
+  left: -50px;
+  animation-delay: -5s;
+}
+
+@keyframes levitimi-orbash {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(50px, 30px) scale(1.1); }
 }
 
 .sfondi-ambiental::after {
@@ -213,35 +254,144 @@ body {
 }
 
 .seksioni-hero {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 5vw;
+  padding: 6rem 5vw 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.kontenieri-hero {
+  max-width: 1400px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .kontenieri-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
 }
 
 .permbajtja-hero {
-  max-width: 1000px;
-  text-align: center;
+  max-width: 800px;
+  text-align: left;
+}
+
+@media (max-width: 1024px) {
+  .permbajtja-hero {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+.badge-modern {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: rgba(26, 92, 255, 0.1);
+  border: 1px solid rgba(26, 92, 255, 0.2);
+  border-radius: 100px;
+  color: var(--theksi-kalter);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
 }
 
 .permbajtja-hero h1 {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
   font-weight: 900;
   line-height: 1.1;
-  margin-bottom: 2rem;
-  background: linear-gradient(135deg, var(--teksti-kryesor) 0%, var(--theksi-kalter) 100%);
-  background-clip: text;
+  margin-bottom: 1rem;
+  color: var(--teksti-kryesor);
+  letter-spacing: -1px;
+}
+
+.tekst-gradient {
+  background: linear-gradient(to right, #ffffff, #00d2ff, #1a5cff);
+  background-size: 200% auto;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  animation: shine-gradient 5s linear infinite;
+}
+
+@keyframes shine-gradient {
+  to { background-position: 200% center; }
+}
+
+.vizualizimi-hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.karta-vizuale {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1;
+  background: var(--siperfaqja-xhama);
+  border: 1px solid var(--kufiri-xhama);
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(40px);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.karta-vizuale img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+.shkelqimi-karti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
+  pointer-events: none;
+  transition: background 0.1s ease;
+}
+
+@media (max-width: 768px) {
+  .seksioni-hero {
+    padding: 6rem 5vw 2rem;
+  }
+  
+  .karta-vizuale {
+    max-width: 320px;
+    border-radius: 24px;
+  }
+  
+  .badge-modern {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
 }
 
 .shfaq-ngadale {
   opacity: 0;
-  transform: translateY(30px);
-  animation: shfaqja-elementit 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform: translateY(20px);
+  animation: shfaqja-elementit 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes shfaqja-elementit {
@@ -252,27 +402,57 @@ body {
 }
 
 .permbajtja-hero p {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
   color: var(--teksti-dytesor);
-  line-height: 1.8;
-  margin-bottom: 3.5rem;
+  line-height: 1.6;
+  margin-bottom: 2.2rem;
+}
+
+.veprimet-hero {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .veprimet-hero {
+    justify-content: center;
+  }
 }
 
 .butoni-fillimit {
   display: inline-block;
-  background: linear-gradient(90deg, var(--theksi-pershtatur), var(--theksi-kalter));
-  color: #000;
+  background: linear-gradient(135deg, #00d2ff 0%, #1a5cff 100%);
+  color: #040812;
   text-decoration: none;
-  padding: 1.4rem 3.5rem;
-  border-radius: 12px;
-  font-weight: 900;
-  font-size: 1.15rem;
+  padding: 1.2rem 3rem;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 40px rgba(0, 210, 255, 0.3);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.butoni-fillimit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.butoni-fillimit:hover::before {
+  left: 100%;
 }
 
 .butoni-pulsues {
@@ -594,50 +774,131 @@ body {
 }
 
 .fundi-faqes {
-  background: var(--siperfaqja-xhama);
+  background: linear-gradient(to bottom, rgba(15, 20, 35, 0.45) 0%, rgba(4, 8, 18, 0.95) 100%);
   border-top: 1px solid var(--kufiri-xhama);
-  padding: 3rem 5vw;
-  margin-top: 4rem;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  padding: 6rem 5vw 3rem;
+  margin-top: 8rem;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  position: relative;
+  overflow: hidden;
+}
+
+.fundi-faqes::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--theksi-kalter), transparent);
+  opacity: 0.3;
 }
 
 .permbajtja-fundit {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 4rem;
+}
+
+@media (max-width: 1024px) {
+  .permbajtja-fundit {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .permbajtja-fundit {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }
 
 .kredencialet h3 {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
+  font-weight: 900;
   color: var(--teksti-kryesor);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
 }
 
 .kredencialet p {
   color: var(--teksti-dytesor);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 320px;
+}
+
+@media (max-width: 640px) {
+  .kredencialet p {
+    margin: 0 auto;
+  }
+}
+
+.kolona-fundit h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--teksti-kryesor);
+  margin-bottom: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.lidhjet-fundit-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lidhjet-fundit-lista a {
+  color: var(--teksti-dytesor);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: var(--tranzicioni);
+  display: inline-block;
+}
+
+.lidhjet-fundit-lista a:hover {
+  color: var(--theksi-kalter);
+  transform: translateX(5px);
+}
+
+@media (max-width: 640px) {
+  .lidhjet-fundit-lista a:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.shiriti-poshtem {
+  max-width: 1400px;
+  margin: 4rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--kufiri-xhama);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--teksti-dytesor);
   font-size: 0.9rem;
 }
 
-.lidhjet-fundit {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+@media (max-width: 768px) {
+  .shiriti-poshtem {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
 }
 
-.lidhjet-fundit a {
-  color: var(--teksti-dytesor);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: var(--tranzicioni);
-}
-
-.lidhjet-fundit a:hover {
-  color: var(--theksi-kalter);
+.logo-fundit {
+  background: var(--ngjyra-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
 }
 
 .faqja-info {
