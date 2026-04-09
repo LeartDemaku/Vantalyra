@@ -160,6 +160,7 @@ function updateNavigation() {
         // User is logged in
         navLinks.innerHTML = `
             <a href="index.html" class="lidhja-kthyese">Ballina</a>
+            <a href="about.html" class="lidhja-kthyese">Rreth Nesh</a>
             <a href="index.html#sherbimet" class="lidhja-kthyese">Shërbimet</a>
             <a href="index.html#si-funksionon" class="lidhja-kthyese">Si Funksionon</a>
             <a href="contact.html" class="lidhja-kthyese">Kontakti</a>
@@ -202,6 +203,7 @@ function updateNavigation() {
         if (!window.location.pathname.includes('login.html') && !window.location.pathname.includes('register.html') && !window.location.pathname.includes('forgot-password.html')) {
             navLinks.innerHTML = `
                 <a href="index.html" class="lidhja-kthyese">Ballina</a>
+                <a href="about.html" class="lidhja-kthyese">Rreth Nesh</a>
                 <a href="index.html#sherbimet" class="lidhja-kthyese">Shërbimet</a>
                 <a href="index.html#si-funksionon" class="lidhja-kthyese">Si Funksionon</a>
                 <a href="contact.html" class="lidhja-kthyese">Kontakti</a>
@@ -210,6 +212,7 @@ function updateNavigation() {
         } else if (window.location.pathname.includes('login.html') || window.location.pathname.includes('register.html') || window.location.pathname.includes('forgot-password.html')) {
             navLinks.innerHTML = `
                 <a href="index.html" class="lidhja-kthyese">Ballina</a>
+                <a href="about.html" class="lidhja-kthyese">Rreth Nesh</a>
                 <a href="index.html#sherbimet" class="lidhja-kthyese">Shërbimet</a>
                 <a href="index.html#si-funksionon" class="lidhja-kthyese">Si Funksionon</a>
                 <a href="contact.html" class="lidhja-kthyese">Kontakti</a>
