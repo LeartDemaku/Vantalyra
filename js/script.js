@@ -52,7 +52,7 @@ if (zonaLeshimit) {
       if (kërkesa.readyState === 4 && kërkesa.status === 200) {
         const përgjigja = JSON.parse(kërkesa.responseText);
 
-        // Pasi dokumenti ruhet në Cloudinary, njoftojmë backend-in tonë
+        
         try {
           const token = localStorage.getItem('token');
           const dokumentiRij = {
@@ -100,7 +100,7 @@ if (zonaLeshimit) {
   };
 
   const ruajNëEksran = (elementi) => {
-    // Sigurohemi që marrim URL-në e saktë (nga backend vjen si 'url', nga Cloudinary direct si 'secure_url')
+    
     const finalUrl = elementi.url || elementi.secure_url;
     const finalId = elementi.id;
 
@@ -138,8 +138,8 @@ if (zonaLeshimit) {
 
     if (!confirm('A jeni të sigurt që dëshironi ta fshini këtë dokument?')) return;
     
-    // ZGJIDHJA DEFINITIVE DHE E THJESHTË:
-    // Përdorim rrugën e re emergjente për të anashkaluar keshimin
+    
+    
     window.location.href = `/fshirja-emergjente/${id}?token=${localStorage.getItem('token')}`;
   };
 
@@ -153,9 +153,9 @@ if (zonaLeshimit) {
       });
       if (res.ok) {
         const dokumentet = await res.json();
-        // i kthejmë përmbys listën nëse e lartmja duhet të jetë më e reja (ose i bëjmë append nqs prepend)
-        // databaza i kthen ORDER BY created_at DESC, pra të parat janë të rejat
-        // ruajNëEksran bën prepend, ndaj i kalojmë nga i fundit tek i pari për të mbajtur renditjen
+        
+        
+        
         dokumentet.reverse().forEach(dok => {
           ruajNëEksran({
             id: dok.id,
@@ -204,7 +204,7 @@ if (formaKontaktit) {
   });
 }
 
-// Menaxhimi i Menysë në Mobile
+
 const menyToggle = document.getElementById('meny-toggle');
 const lidhjetNav = document.getElementById('lidhjet-navigimit');
 
@@ -214,7 +214,7 @@ if (menyToggle && lidhjetNav) {
     lidhjetNav.classList.toggle('aktiv');
   });
 
-  // Mbyllja e menysë kur klikohet një lidhje
+  
   document.querySelectorAll('.lidhja-kthyese, .butoni-kycje').forEach(lidhje => {
     lidhje.addEventListener('click', () => {
       menyToggle.classList.remove('aktiv');
@@ -223,7 +223,7 @@ if (menyToggle && lidhjetNav) {
   });
 }
 
-// --- SISTEMI I ANIMACIONEVE DINAMIKE (SCROLL REVEAL) ---
+
 const vëzhguesiReveal = new IntersectionObserver((hyrjet) => {
   hyrjet.forEach(hyrja => {
     if (hyrja.isIntersecting) {
@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
   elementetPërReveal.forEach(el => vëzhguesiReveal.observe(el));
 });
 
-// --- SISTEMI I INTERAKTIVITETIT HERO ---
+
 document.addEventListener('mousemove', (e) => {
   const karta = document.getElementById('karta-interaktive');
   if (!karta) return;
@@ -248,13 +248,13 @@ document.addEventListener('mousemove', (e) => {
   const { clientX, clientY } = e;
   const { innerWidth, innerHeight } = window;
 
-  // Llogaritja e rrotullimit bazuar në pozicionin e miut
-  const xRotation = ((clientY / innerHeight) - 0.5) * 20; // Rrotullim deri ne 10 grade
+  
+  const xRotation = ((clientY / innerHeight) - 0.5) * 20; 
   const yRotation = ((clientX / innerWidth) - 0.5) * -20;
 
   karta.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale3d(1.02, 1.02, 1.02)`;
   
-  // Lëvizja e shkëlqimit
+  
   const shkelqimi = karta.querySelector('.shkelqimi-karti');
   if (shkelqimi) {
     const xPercent = (clientX / innerWidth) * 100;
@@ -263,7 +263,7 @@ document.addEventListener('mousemove', (e) => {
   }
 });
 
-// Kthimi ne gjendje normale kur miu largohet nga dritarja
+
 document.addEventListener('mouseleave', () => {
     const karta = document.getElementById('karta-interaktive');
     if (karta) {

@@ -113,7 +113,7 @@ body {
   }
 }
 
-/* Scroll Reveal System - Side Entrances */
+
 .reveal-left {
   opacity: 0;
   transform: translateX(-100px) scale(0.9);
@@ -1085,9 +1085,9 @@ body {
   }
 }
 
-/* ======== STYLE I RI PROFESIONAL I HEADER-IT ======== */
 
-/* Butoni CTA "Identifikohu" - Dizajn Premium */
+
+
 .butoni-kycje {
   background: linear-gradient(135deg, #00d2ff 0%, #1a5cff 100%);
   color: #ffffff !important;
@@ -1112,7 +1112,7 @@ body {
   filter: brightness(1.1);
 }
 
-/* Kontenjeri i Profilit të Përdoruesit */
+
 .user-profile-container {
   position: relative;
   display: flex;
@@ -1159,7 +1159,7 @@ body {
   gap: 0.5rem;
 }
 
-/* Dropdown-i i Përdoruesit */
+
 .user-dropdown-content {
   position: absolute;
   top: 120%;
@@ -1217,7 +1217,7 @@ body {
   color: #ff7675;
 }
 
-/* Përshtatja Mobile */
+
 @media (max-width: 768px) {
   .lidhjet-navigimit {
     padding: 2rem;

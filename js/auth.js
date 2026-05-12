@@ -148,16 +148,16 @@ if (resetForm) {
     });
 }
 
-// Check auth state for UI updates
+
 function updateNavigation() {
     const token = localStorage.getItem('token');
     const fullName = localStorage.getItem('fullName');
     const navLinks = document.getElementById('lidhjet-navigimit');
-    
+
     if (!navLinks) return;
 
     if (token && fullName) {
-        // User is logged in
+
         navLinks.innerHTML = `
             <a href="index.html" class="lidhja-kthyese">Ballina</a>
             <a href="about.html" class="lidhja-kthyese">Rreth Nesh</a>
@@ -194,8 +194,8 @@ function updateNavigation() {
             window.location.href = 'index.html';
         });
     } else {
-        // User is not logged in
-        // On dashboard page, redirect to login
+
+
         if (window.location.pathname.includes('dashboard.html')) {
             window.location.href = 'login.html';
         }
@@ -224,3 +224,31 @@ function updateNavigation() {
 
 document.addEventListener('DOMContentLoaded', updateNavigation);
 document.addEventListener('DOMContentLoaded', () => setLoginVerificationStep(false));
+
+
+
+
+
+
+
+
+
+
+const supabaseUrl = 'https://xzknbsdensrhdraxajkj.supabase.co';
+const supabaseKey = 'sb_publishable_aUbVz6zuFEI2BRUwd9Sfqg_CNsdaXDV';
+
+const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+async function loginUser(email, password) {
+    const { data, error } = await _supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+    });
+
+    if (error) {
+        alert("Gabim: " + error.message);
+    } else {
+        alert("Hyrja u krye me sukses!");
+        window.location.href = "dashboard.html";
+    }
+}

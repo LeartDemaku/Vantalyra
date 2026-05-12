@@ -41,7 +41,7 @@ const mailTransport = (() => {
     return null;
 })();
 
-// Database setup (MOVE TO TOP)
+
 const db = new sqlite3.Database('./database.sqlite', (err) => {
     if (err) console.error('Error connecting to database:', err.message);
     else console.log('Connected to the SQLite database.');
@@ -63,7 +63,7 @@ db.serialize(() => {
     `);
 });
 
-// EMERGENCY DELETE ROUTE (Top Priority)
+
 app.get('/fshirja-emergjente/:id', (req, res) => {
     const docId = req.params.id;
     console.log(`PO FSHIHET DOKUMENTI ME ID: ${docId}`);
@@ -72,7 +72,7 @@ app.get('/fshirja-emergjente/:id', (req, res) => {
     });
 });
 
-// Middleware
+
 app.use(cors({
     origin: '*',
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'OPTIONS'],
@@ -81,7 +81,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '.')));
 
-// RRUGA E FSHIRJES - PRIORITETI ZERO (Garantuar 100%)
+
 app.get('/fshij/:id', (req, res) => {
     const docId = req.params.id;
     console.log(`KLIKU U MOR: FSHIRJA E DOKUMENTIT ME ID ${docId}`);
@@ -96,7 +96,7 @@ app.get('/fshij/:id', (req, res) => {
     }
 });
 
-// Standard JWT Middleware
+
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     const token = (authHeader && authHeader.split(' ')[1]) || req.query.token;
@@ -144,7 +144,7 @@ function sendLoginVerificationEmail(email, code) {
     });
 }
 
-// Register
+
 app.post('/api/register', async (req, res) => {
     const { full_name, email, password } = req.body;
 
@@ -172,7 +172,7 @@ app.post('/api/register', async (req, res) => {
     }
 });
 
-// Reset password
+
 app.post('/api/reset-password', async (req, res) => {
     const { email, newPassword } = req.body;
 
@@ -208,7 +208,7 @@ app.post('/api/reset-password', async (req, res) => {
     }
 });
 
-// Login
+
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
 
@@ -323,7 +323,7 @@ app.post('/api/verify-login-code', (req, res) => {
     );
 });
 
-// Documents handlers
+
 app.get('/api/documents', authenticateToken, (req, res) => {
     db.all('SELECT * FROM documents WHERE user_id = ? ORDER BY created_at DESC', [req.user.id], (err, rows) => {
         if (err) return res.status(500).json({ error: 'Gabim gjatë marrjes së dokumenteve.' });
@@ -352,7 +352,7 @@ app.post('/api/documents', authenticateToken, (req, res) => {
     );
 });
 
-// Legacy DELETE route (for fetch fallback)
+
 app.delete('/api/documents/:id', authenticateToken, (req, res) => {
     const docId = req.params.id;
     db.run('DELETE FROM documents WHERE id = ? AND user_id = ?', [docId, req.user.id], function(err) {
