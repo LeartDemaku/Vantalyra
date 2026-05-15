@@ -27,5 +27,8 @@
     "jsonwebtoken": "^9.0.3",
     "nodemailer": "^8.0.4",
     "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.10"
   }
 }
