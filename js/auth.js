@@ -225,3 +225,34 @@ function updateNavigation() {
 document.addEventListener('DOMContentLoaded', updateNavigation);
 document.addEventListener('DOMContentLoaded', () => setLoginVerificationStep(false));
 
+
+
+
+
+
+
+
+
+
+const supabaseUrl = 'https://xzknbsdensrhdraxajkj.supabase.co';
+const supabaseKey = 'sb_publishable_aUbVz6zuFEI2BRUwd9Sfqg_CNsdaXDV';
+
+const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+async function loginUser(email, password) {
+    // Kjo rresht na ndihmon të shohim nëse kodi po ekzekutohet
+    console.log("Duke provuar login për:", email);
+
+    const { data, error } = await _supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+    });
+
+    if (error) {
+        console.error("Gabimi:", error.message);
+        alert("Gabim nga Supabase: " + error.message);
+    } else {
+        alert("Hyrja u krye me sukses!");
+        window.location.href = "dashboard.html";
+    }
+}

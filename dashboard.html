@@ -4,103 +4,357 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administrimi i Dokumenteve</title>
+  <title>Vantalyra | Paneli i Kontrollit</title>
   <link rel="stylesheet" href="css/style.css">
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Roboto:wght@300;400;700;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"
     rel="stylesheet">
 </head>
 
 <body>
   <div class="sfondi-ambiental"></div>
-  <nav class="navigimi-kryesor">
-    <a href="index.html" class="logo">Vantalyra</a>
-    <div class="meny-toggle" id="meny-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="lidhjet-navigimit" id="lidhjet-navigimit">
-      <a href="index.html" class="lidhja-kthyese">Ballina</a>
-      <a href="about.html" class="lidhja-kthyese">Rreth Nesh</a>
-      <a href="contact.html" class="lidhja-kthyese">Kontakti</a>
-      <a href="login.html" class="butoni-kycje">Identifikohu</a>
-    </div>
-  </nav>
 
-  <main class="paneli-menaxhimit">
-    <header class="koka-panelit">
-      <h1>Hapësira e Administrimit</h1>
-    </header>
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <linearGradient id="storageGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00d2ff"/>
+        <stop offset="100%" stop-color="#1a5cff"/>
+      </linearGradient>
+    </defs>
+  </svg>
 
-    <section class="rrjeti-panelit">
-      <div class="karta-panel qendra-ngarkimit">
-        <h2>Ngarko Dokumentin</h2>
-        <div id="zona-leshimit" class="zona-leshimit">
-          <input type="file" id="dokumenti-hyrja" multiple hidden>
-          <div class="ikona-ngarkimit">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-            </svg>
-          </div>
-          <p>Lëshoni skedarët këtu ose zgjidhni formatet nga pajisja</p>
-          <button id="butoni-shfletimit" class="butoni-dytesor">Ngarko Dokumentet</button>
-        </div>
+  <div class="dashboard-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">Vantalyra</a>
+        <button class="sidebar-close" id="sidebar-close">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
 
-        <div id="kutia-progresit" class="kutia-progresit i-fshehur">
-          <div class="koka-progresit">
-            <span id="emri-dokumentit" class="teksti-monospaced"></span>
-            <span id="vijushmeria" class="teksti-monospaced"></span>
-          </div>
-          <div class="sfondi-shiritit">
-            <div id="shiriti-progresit" class="shiriti-progresit"></div>
-          </div>
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" id="sidebar-avatar"></div>
+        <div class="sidebar-user-info">
+          <span class="sidebar-user-name" id="sidebar-user-name">Përdoruesi</span>
+          <span class="sidebar-user-role">Administrator</span>
         </div>
       </div>
 
-      <div class="karta-panel libraria-aseteve">
-        <h2>Arkivi i Dokumenteve</h2>
-        <div id="rrjeti-inventarit" class="rrjeti-inventarit"></div>
-      </div>
-    </section>
-  </main>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-section="overview">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Përmbledhja</span>
+        </a>
+        <a href="#" class="nav-item" data-section="documents">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Dokumentet</span>
+        </a>
+        <a href="#" class="nav-item" data-section="upload">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          <span>Ngarko</span>
+        </a>
+        <a href="#" class="nav-item" data-section="activity">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          <span>Aktiviteti</span>
+        </a>
+      </nav>
 
-  <footer class="fundi-faqes">
-    <div class="permbajtja-fundit">
-      <div class="kredencialet">
-        <h3 class="logo-fundit">Vantalyra</h3>
-        <p>Infrastruktura më e sigurt dhe më e avancuar për ruajtjen dhe menaxhimin e dokumenteve tuaja në cloud. Siguri
-          supreme për asetet tuaja digjitale.</p>
+      <div class="sidebar-footer">
+        <a href="#" id="sidebar-logout" class="nav-item logout-nav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span>Dil</span>
+        </a>
       </div>
-      <div class="kolona-fundit">
-        <h4>Platforma</h4>
-        <ul class="lidhjet-fundit-lista">
-          <li><a href="index.html">Ballina</a></li>
-          <li><a href="about.html">Rreth Nesh</a></li>
-          <li><a href="index.html#sherbimet">Shërbimet</a></li>
-          <li><a href="index.html#si-funksionon">Si Funksionon</a></li>
-        </ul>
-      </div>
-      <div class="kolona-fundit">
-        <h4>Mbështetja</h4>
-        <ul class="lidhjet-fundit-lista">
-          <li><a href="contact.html">Qendra e Kontaktit</a></li>
-          <li><a href="login.html">Kyçja e Sigurt</a></li>
-        </ul>
-      </div>
-      <div class="kolona-fundit">
-        <h4>Ligjore</h4>
-        <ul class="lidhjet-fundit-lista">
-          <li><a href="privacy.html">Politika e Privatësisë</a></li>
-        </ul>
-      </div>
+    </aside>
+
+    <div class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" id="menu-toggle">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <div class="topbar-search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="global-search" placeholder="Kërko dokumente...">
+        </div>
+        <div class="topbar-actions">
+          <button class="topbar-btn" id="theme-toggle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+          <div class="topbar-btn-wrapper">
+            <button class="topbar-btn" id="notification-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              <span class="notification-dot" id="notification-dot"></span>
+            </button>
+            <div class="notification-dropdown" id="notification-dropdown">
+              <div class="notification-dropdown-header">
+                <h4>Njoftimet</h4>
+                <button id="clear-notifications">Pastro të gjitha</button>
+              </div>
+              <div id="notifications-list">
+                <div class="notification-empty">Nuk ka njoftime të reja</div>
+              </div>
+            </div>
+          </div>
+          <div class="topbar-user" id="topbar-user">
+            <div class="topbar-avatar" id="topbar-avatar"></div>
+            <span class="topbar-name" id="topbar-name"></span>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-main">
+        <section class="section-panel active" id="section-overview">
+          <div class="welcome-banner">
+            <div class="welcome-content">
+              <h1 class="welcome-title">Mirë se erdhe, <span id="welcome-name"></span></h1>
+              <p class="welcome-subtitle">Menaxho dokumentet e tua me siguri të plotë dhe shpejtësi maksimale.</p>
+            </div>
+            <div class="welcome-illustration">
+              <div class="floating-card card-1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <div class="floating-card card-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+              </div>
+              <div class="floating-card card-3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon stat-icon-blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Dokumente Totale</span>
+                <span class="stat-value" id="stat-documents">0</span>
+              </div>
+              <div class="stat-trend stat-trend-up">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <span>Aktive</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon stat-icon-purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Imazhe</span>
+                <span class="stat-value" id="stat-images">0</span>
+              </div>
+              <div class="stat-trend">
+                <span>Media</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon stat-icon-green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Ngarkime Sot</span>
+                <span class="stat-value" id="stat-uploads">0</span>
+              </div>
+              <div class="stat-trend stat-trend-up">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <span>Sot</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon stat-icon-orange">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Siguria</span>
+                <span class="stat-value">100%</span>
+              </div>
+              <div class="stat-trend stat-trend-up">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <span>E mbrojtur</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="overview-grid">
+            <div class="panel-card storage-panel">
+              <div class="panel-header">
+                <h3>Shfrytëzimi i Hapësirës</h3>
+                <span class="panel-badge">Live</span>
+              </div>
+              <div class="storage-visual">
+                <div class="storage-ring">
+                  <svg viewBox="0 0 120 120" class="storage-svg">
+                    <circle cx="60" cy="60" r="50" class="storage-bg"></circle>
+                    <circle cx="60" cy="60" r="50" class="storage-fill" id="storage-fill"></circle>
+                  </svg>
+                  <div class="storage-center">
+                    <span class="storage-percent" id="storage-percent">0%</span>
+                    <span class="storage-label">e përdorur</span>
+                  </div>
+                </div>
+              </div>
+              <div class="storage-details">
+                <div class="storage-item">
+                  <span class="storage-dot storage-dot-blue"></span>
+                  <span class="storage-item-label">Dokumente</span>
+                  <span class="storage-item-value" id="storage-docs">0</span>
+                </div>
+                <div class="storage-item">
+                  <span class="storage-dot storage-dot-purple"></span>
+                  <span class="storage-item-label">Imazhe</span>
+                  <span class="storage-item-value" id="storage-imgs">0</span>
+                </div>
+                <div class="storage-item">
+                  <span class="storage-dot storage-dot-green"></span>
+                  <span class="storage-item-label">Të tjera</span>
+                  <span class="storage-item-value" id="storage-other">0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-card quick-actions-panel">
+              <div class="panel-header">
+                <h3>Veprime të Shpejta</h3>
+              </div>
+              <div class="quick-actions">
+                <button class="action-btn" data-action="upload">
+                  <div class="action-icon action-icon-blue">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                  </div>
+                  <span>Ngarko Dokument</span>
+                </button>
+                <button class="action-btn" data-action="documents">
+                  <div class="action-icon action-icon-purple">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                  </div>
+                  <span>Shiko Dokumentet</span>
+                </button>
+                <button class="action-btn" data-action="activity">
+                  <div class="action-icon action-icon-green">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                  </div>
+                  <span>Aktiviteti i Fundit</span>
+                </button>
+                <button class="action-btn" data-action="settings">
+                  <div class="action-icon action-icon-orange">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  </div>
+                  <span>Cilësimet</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="panel-card recent-activity-panel">
+              <div class="panel-header">
+                <h3>Aktiviteti i Fundit</h3>
+                <a href="#" class="view-all" data-action="activity">Shiko të gjitha</a>
+              </div>
+              <div class="activity-list" id="activity-list">
+                <div class="activity-empty">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                  <p>Asnjë aktivitet ende</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-panel" id="section-documents">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h2>Arkivi i Dokumenteve</h2>
+              <span class="doc-count" id="doc-count">0 dokumente</span>
+            </div>
+            <div class="section-controls">
+              <div class="filter-group">
+                <select id="filter-type" class="filter-select">
+                  <option value="all">Të gjitha</option>
+                  <option value="image">Imazhe</option>
+                  <option value="document">Dokumente</option>
+                  <option value="other">Të tjera</option>
+                </select>
+              </div>
+              <div class="view-toggle">
+                <button class="view-btn active" data-view="grid" id="view-grid">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </button>
+                <button class="view-btn" data-view="list" id="view-list">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="documents-container" class="documents-grid">
+            <div class="empty-state">
+              <div class="empty-icon">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              </div>
+              <h3>Nuk ka dokumente ende</h3>
+              <p>Ngarkoni dokumentin tuaj të parë për ta parë këtu</p>
+              <button class="btn-primary" data-action="upload">Ngarko Tani</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-panel" id="section-upload">
+          <div class="section-header">
+            <h2>Ngarko Dokument</h2>
+          </div>
+          <div class="upload-container">
+            <div class="upload-zone" id="upload-zone">
+              <input type="file" id="file-input" multiple hidden>
+              <div class="upload-animation">
+                <div class="upload-circle">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                </div>
+              </div>
+              <h3>Tërhiqni skedarët këtu</h3>
+              <p>ose klikoni për të zgjedhur nga pajisja</p>
+              <div class="upload-formats">
+                <span class="format-badge">PNG</span>
+                <span class="format-badge">JPG</span>
+                <span class="format-badge">PDF</span>
+                <span class="format-badge">DOC</span>
+                <span class="format-badge">+ më shumë</span>
+              </div>
+              <button class="btn-primary" id="browse-btn">Zgjidh Skedarë</button>
+            </div>
+
+            <div class="upload-progress-container" id="upload-progress-container">
+              <div class="progress-header">
+                <h3>Ngarkimi në Progres</h3>
+                <button class="close-progress" id="close-progress">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+              </div>
+              <div class="upload-queue" id="upload-queue"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-panel" id="section-activity">
+          <div class="section-header">
+            <h2>Historiku i Aktivitetit</h2>
+          </div>
+          <div class="activity-full-list" id="activity-full-list">
+            <div class="empty-state">
+              <div class="empty-icon">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              </div>
+              <h3>Asnjë aktivitet ende</h3>
+              <p>Aktiviteti juaj do të shfaqet këtu</p>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-    <div class="shiriti-poshtem">
-      <p>&copy; 2026 Vantalyra Cloud Ecosystem. Të gjitha të drejtat e rezervuara.</p>
-      <p>Created with Precision for Digital Security</p>
-    </div>
-  </footer>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
 
   <script src="js/auth.js"></script>
   <script src="js/script.js"></script>
