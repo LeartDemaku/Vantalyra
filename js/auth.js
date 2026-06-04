@@ -11,6 +11,8 @@ const loginHelperText = document.getElementById('login-helper-text');
 
 let pendingVerificationToken = null;
 let pendingVerificationEmail = null;
+let pendingResetToken = null;
+let pendingResetEmail = null;
 
 function showMessage(msg, isError = false) {
     if (!authMessage) return;
@@ -120,30 +122,72 @@ if (loginForm) {
 if (resetForm) {
     resetForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const email = document.getElementById('email').value;
-        const newPassword = document.getElementById('new-password').value;
+        const emailInput = document.getElementById('email');
+        const resetCodeInput = document.getElementById('reset-code');
+        const newPasswordInput = document.getElementById('new-password');
+        const resetCodeGroup = document.getElementById('reset-code-group');
+        const newPasswordGroup = document.getElementById('new-password-group');
+        const resetBtn = document.getElementById('reset-button');
 
-        if (newPassword.length < 6) {
-            showMessage('Fjalekalimi i ri duhet te kete te pakten 6 karaktere.', true);
-            return;
-        }
+        const email = emailInput.value.trim();
 
-        try {
-            const response = await fetch(`${API_URL}/reset-password`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, newPassword })
-            });
-            const data = await response.json();
+        if (!pendingResetToken) {
+            try {
+                const response = await fetch(`${API_URL}/request-reset-password`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await response.json();
 
-            if (response.ok) {
-                showMessage(data.message, false);
-                setTimeout(() => window.location.href = 'login.html', 2000);
-            } else {
-                showMessage(data.error, true);
+                if (response.ok) {
+                    pendingResetToken = data.resetToken;
+                    pendingResetEmail = data.email;
+                    emailInput.disabled = true;
+                    if (resetCodeGroup) resetCodeGroup.style.display = 'block';
+                    if (newPasswordGroup) newPasswordGroup.style.display = 'block';
+                    if (resetCodeInput) resetCodeInput.required = true;
+                    if (newPasswordInput) newPasswordInput.required = true;
+                    if (resetBtn) resetBtn.textContent = 'Ndrysho Fjalëkalimin';
+                    if (resetCodeInput) resetCodeInput.focus();
+                    showMessage(data.message, false);
+                } else {
+                    showMessage(data.error, true);
+                }
+            } catch (error) {
+                showMessage('Ndodhi një gabim gjatë procesit.', true);
             }
-        } catch (error) {
-            showMessage('Ndodhi një gabim gjatë procesit.', true);
+        } else {
+            const code = resetCodeInput.value.trim();
+            const newPassword = newPasswordInput.value;
+
+            if (newPassword.length < 6) {
+                showMessage('Fjalëkalimi i ri duhet të ketë të paktën 6 karaktere.', true);
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/reset-password`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: pendingResetEmail,
+                        code,
+                        resetToken: pendingResetToken,
+                        newPassword
+                    })
+                });
+                const data = await response.json();
+
+                if (response.ok) {
+                    showMessage(data.message, false);
+                    setTimeout(() => window.location.href = 'login.html', 2000);
+                } else {
+                    showMessage(data.error, true);
+                }
+            } catch (error) {
+                showMessage('Ndodhi një gabim gjatë procesit.', true);
+            }
         }
     });
 }

@@ -1177,7 +1177,8 @@ body {
   z-index: 1000;
 }
 
-.user-profile-container:hover .user-dropdown-content {
+.user-profile-container:hover .user-dropdown-content,
+.user-dropdown-content.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

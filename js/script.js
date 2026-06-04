@@ -69,8 +69,30 @@ const Dashboard = (() => {
       logout();
     });
 
-    $('#topbar-user')?.addEventListener('click', () => {
-      window.location.href = 'index.html';
+    const userDropdown = $('#topbar-user-dropdown');
+    $('#topbar-user')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      userDropdown?.classList.toggle('show');
+    });
+
+    $('#topbar-profile-link')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      switchSection('overview');
+      userDropdown?.classList.remove('show');
+    });
+
+    $('#topbar-logout-link')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      logout();
+    });
+
+    document.addEventListener('click', (e) => {
+      const topbarUser = $('#topbar-user');
+      if (topbarUser && !topbarUser.contains(e.target)) {
+        userDropdown?.classList.remove('show');
+      }
     });
   }
 

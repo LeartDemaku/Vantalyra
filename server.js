@@ -61,6 +61,19 @@ db.serialize(() => {
             FOREIGN KEY (user_id) REFERENCES users (id)
         )
     `);
+    db.run(`
+        CREATE TABLE IF NOT EXISTS password_reset_codes (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            email TEXT NOT NULL,
+            code_hash TEXT NOT NULL,
+            reset_token TEXT NOT NULL UNIQUE,
+            expires_at DATETIME NOT NULL,
+            attempts INTEGER DEFAULT 0,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users (id)
+        )
+    `);
 });
 
 
@@ -144,6 +157,28 @@ function sendLoginVerificationEmail(email, code) {
     });
 }
 
+function sendPasswordResetEmail(email, code) {
+    if (!mailTransport) {
+        throw new Error('Nodemailer is not configured.');
+    }
+
+    return mailTransport.sendMail({
+        from: SMTP_FROM,
+        to: email,
+        subject: 'Kodi i verifikimit per ndryshimin e fjalekalimit ne Vantalyra',
+        text: `Kodi juaj i verifikimit per ndryshimin e fjalekalimit eshte: ${code}. Ky kod skadon per ${VERIFICATION_CODE_TTL_MINUTES} minuta.`,
+        html: `
+            <div style="font-family: Arial, sans-serif; color: #111827;">
+                <h2>Kodi i ndryshimit te fjalekalimit</h2>
+                <p>Per te ndryshuar fjalekalimin ne llogarine tuaj ne Vantalyra, perdorni kodin me poshte:</p>
+                <p style="font-size: 32px; font-weight: bold; letter-spacing: 6px;">${code}</p>
+                <p>Ky kod skadon per ${VERIFICATION_CODE_TTL_MINUTES} minuta.</p>
+                <p>Nese nuk e keni kerkuar ju kete ndryshim, injorojeni kete email.</p>
+            </div>
+        `
+    });
+}
+
 
 app.post('/api/register', async (req, res) => {
     const { full_name, email, password } = req.body;
@@ -173,11 +208,69 @@ app.post('/api/register', async (req, res) => {
 });
 
 
-app.post('/api/reset-password', async (req, res) => {
-    const { email, newPassword } = req.body;
+app.post('/api/request-reset-password', (req, res) => {
+    const { email } = req.body;
 
-    if (!email || !newPassword) {
-        return res.status(400).json({ error: 'Ju lutem mbushni te gjitha fushat.' });
+    if (!email) {
+        return res.status(400).json({ error: 'Ju lutem shkruani email-in.' });
+    }
+
+    db.get('SELECT * FROM users WHERE email = ?', [email], async (err, user) => {
+        if (err) return res.status(500).json({ error: 'Gabim sistemi.' });
+        if (!user) return res.status(404).json({ error: 'Nuk ekziston llogari me kete email.' });
+
+        if (!mailTransport) {
+            return res.status(500).json({
+                error: 'Nodemailer nuk eshte i konfiguruar ende ne server. Vendos EMAIL_SERVICE ose SMTP_HOST bashke me SMTP_USER, SMTP_PASS dhe SMTP_FROM ne .env.'
+            });
+        }
+
+        const code = createVerificationCode();
+        const resetToken = createVerificationToken();
+        const expiresAt = new Date(Date.now() + VERIFICATION_CODE_TTL_MINUTES * 60 * 1000).toISOString();
+
+        try {
+            const codeHash = await bcrypt.hash(code, 10);
+
+            db.serialize(() => {
+                db.run('DELETE FROM password_reset_codes WHERE email = ?', [email]);
+                db.run(
+                    `INSERT INTO password_reset_codes
+                    (user_id, email, code_hash, reset_token, expires_at)
+                    VALUES (?, ?, ?, ?, ?)`,
+                    [user.id, user.email, codeHash, resetToken, expiresAt],
+                    async (insertErr) => {
+                        if (insertErr) {
+                            return res.status(500).json({ error: 'Gabim gjate krijimit te kodit te verifikimit.' });
+                        }
+
+                        try {
+                            await sendPasswordResetEmail(user.email, code);
+                            res.json({
+                                resetToken,
+                                email: user.email,
+                                message: 'Kodi i verifikimit u dergua ne email.'
+                            });
+                        } catch (emailError) {
+                            db.run('DELETE FROM password_reset_codes WHERE reset_token = ?', [resetToken]);
+                            console.error('Email delivery error:', emailError.message);
+                            console.log(`[DEV ONLY] Kodi i verifikimit per ${user.email} eshte: ${code}`);
+                            res.status(500).json({ error: 'Kodi nuk mund te dergohet ne email per momentin.' });
+                        }
+                    }
+                );
+            });
+        } catch (verificationError) {
+            res.status(500).json({ error: 'Gabim sistemi.' });
+        }
+    });
+});
+
+app.post('/api/reset-password', async (req, res) => {
+    const { email, code, resetToken, newPassword } = req.body;
+
+    if (!email || !code || !resetToken || !newPassword) {
+        return res.status(400).json({ error: 'Ju lutem plotesoni te gjitha fushat.' });
     }
 
     if (newPassword.length < 6) {
@@ -185,24 +278,42 @@ app.post('/api/reset-password', async (req, res) => {
     }
 
     try {
-        db.get('SELECT id FROM users WHERE email = ?', [email], async (err, user) => {
-            if (err) return res.status(500).json({ error: 'Gabim sistemi.' });
-            if (!user) return res.status(404).json({ error: 'Nuk ekziston llogari me kete email.' });
+        db.get(
+            `SELECT prc.*, u.id as user_uid
+             FROM password_reset_codes prc
+             JOIN users u ON u.id = prc.user_id
+             WHERE prc.email = ? AND prc.reset_token = ?`,
+            [email, resetToken],
+            async (err, record) => {
+                if (err) return res.status(500).json({ error: 'Gabim sistemi.' });
+                if (!record) return res.status(400).json({ error: 'Seanca e verifikimit nuk u gjet. Provo te kerkosh nje kod te ri.' });
 
-            const hashedPassword = await bcrypt.hash(newPassword, 10);
-
-            db.run(
-                'UPDATE users SET password_hash = ? WHERE email = ?',
-                [hashedPassword, email],
-                function(updateErr) {
-                    if (updateErr) {
-                        return res.status(500).json({ error: 'Gabim gjate ndryshimit te fjalekalimit.' });
-                    }
-
-                    res.json({ message: 'Fjalekalimi u ndryshua me sukses.' });
+                if (new Date(record.expires_at).getTime() < Date.now()) {
+                    db.run('DELETE FROM password_reset_codes WHERE id = ?', [record.id]);
+                    return res.status(400).json({ error: 'Kodi i verifikimit ka skaduar. Kerkoni nje kod te ri.' });
                 }
-            );
-        });
+
+                if (record.attempts >= VERIFICATION_CODE_MAX_ATTEMPTS) {
+                    db.run('DELETE FROM password_reset_codes WHERE id = ?', [record.id]);
+                    return res.status(429).json({ error: 'Keni tejkaluar tentativat e lejuara. Kerkoni nje kod te ri.' });
+                }
+
+                const validCode = await bcrypt.compare(code, record.code_hash);
+
+                if (!validCode) {
+                    db.run('UPDATE password_reset_codes SET attempts = attempts + 1 WHERE id = ?', [record.id]);
+                    return res.status(400).json({ error: 'Kodi i verifikimit eshte i pasakte.' });
+                }
+
+                const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+                db.serialize(() => {
+                    db.run('UPDATE users SET password_hash = ? WHERE id = ?', [hashedPassword, record.user_uid]);
+                    db.run('DELETE FROM password_reset_codes WHERE email = ?', [email]);
+                    res.json({ message: 'Fjalëkalimi u ndryshua me sukses.' });
+                });
+            }
+        );
     } catch (error) {
         res.status(500).json({ error: 'Gabim sistemi.' });
     }
