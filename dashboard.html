@@ -57,6 +57,10 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
           <span>Aktiviteti</span>
         </a>
+        <a href="#" class="nav-item" data-section="settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Cilësimet</span>
+        </a>
       </nav>
 
       <div class="sidebar-footer">
@@ -77,9 +81,7 @@
           <input type="text" id="global-search" placeholder="Kërko dokumente...">
         </div>
         <div class="topbar-actions">
-          <button class="topbar-btn" id="theme-toggle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          </button>
+
           <div class="topbar-btn-wrapper">
             <button class="topbar-btn" id="notification-btn">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
@@ -357,6 +359,180 @@
               </div>
               <h3>Asnjë aktivitet ende</h3>
               <p>Aktiviteti juaj do të shfaqet këtu</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-panel" id="section-settings">
+          <div class="section-header">
+            <h2>Cilësimet e Llogarisë</h2>
+          </div>
+          <div class="settings-grid">
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <div class="settings-card-icon settings-icon-blue">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div>
+                  <h3>Informacionet e Profilit</h3>
+                  <p>Ndrysho emrin dhe të dhënat e llogarisë</p>
+                </div>
+              </div>
+              <form class="settings-form" id="profile-form">
+                <div class="settings-field">
+                  <label for="settings-name">Emri i plotë</label>
+                  <input type="text" id="settings-name" placeholder="Emri juaj i plotë" autocomplete="name">
+                </div>
+                <div class="settings-field">
+                  <label for="settings-email">Adresa email</label>
+                  <input type="email" id="settings-email" placeholder="email@example.com" disabled>
+                  <span class="settings-field-note">Email-i nuk mund të ndryshohet</span>
+                </div>
+                <div class="settings-actions">
+                  <button type="submit" class="settings-btn settings-btn-primary" id="save-profile-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                    Ruaj Ndryshimet
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <div class="settings-card-icon settings-icon-purple">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
+                <div>
+                  <h3>Ndrysho Fjalëkalimin</h3>
+                  <p>Sigurohuni që llogaria juaj të jetë e mbrojtur</p>
+                </div>
+              </div>
+              <form class="settings-form" id="password-form">
+                <div class="settings-field">
+                  <label for="current-password">Fjalëkalimi aktual</label>
+                  <div class="settings-password-wrapper">
+                    <input type="password" id="current-password" placeholder="Fjalëkalimi aktual" autocomplete="current-password">
+                    <button type="button" class="toggle-pw" data-target="current-password">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="settings-field">
+                  <label for="new-password-settings">Fjalëkalimi i ri</label>
+                  <div class="settings-password-wrapper">
+                    <input type="password" id="new-password-settings" placeholder="Minimum 6 karaktere" autocomplete="new-password">
+                    <button type="button" class="toggle-pw" data-target="new-password-settings">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="settings-field">
+                  <label for="confirm-password-settings">Konfirmo fjalëkalimin</label>
+                  <div class="settings-password-wrapper">
+                    <input type="password" id="confirm-password-settings" placeholder="Ripërsërit fjalëkalimin e ri" autocomplete="new-password">
+                    <button type="button" class="toggle-pw" data-target="confirm-password-settings">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="password-strength" id="password-strength">
+                  <div class="strength-bar">
+                    <div class="strength-fill" id="strength-fill"></div>
+                  </div>
+                  <span class="strength-label" id="strength-label">Fuqia e fjalëkalimit</span>
+                </div>
+                <div class="settings-actions">
+                  <button type="submit" class="settings-btn settings-btn-primary" id="save-password-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Ndrysho Fjalëkalimin
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <div class="settings-card-icon settings-icon-green">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                </div>
+                <div>
+                  <h3>Preferencat e Njoftimeve</h3>
+                  <p>Kontrollo çfarë njoftimesh dëshiron të marrësh</p>
+                </div>
+              </div>
+              <div class="settings-toggles">
+                <div class="settings-toggle-item">
+                  <div class="toggle-info">
+                    <span class="toggle-label">Ngarkime të reja</span>
+                    <span class="toggle-desc">Njofto kur një dokument ngarkohet me sukses</span>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="notif-uploads" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="settings-toggle-item">
+                  <div class="toggle-info">
+                    <span class="toggle-label">Fshirje dokumentesh</span>
+                    <span class="toggle-desc">Njofto kur një dokument fshihet</span>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="notif-deletes" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="settings-toggle-item">
+                  <div class="toggle-info">
+                    <span class="toggle-label">Kujtesa e hapësirës</span>
+                    <span class="toggle-desc">Njofto kur hapësira është mbi 80%</span>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="notif-storage">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="settings-actions">
+                <button type="button" class="settings-btn settings-btn-primary" id="save-notif-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  Ruaj Preferencat
+                </button>
+              </div>
+            </div>
+
+            <div class="settings-card settings-card-danger">
+              <div class="settings-card-header">
+                <div class="settings-card-icon settings-icon-red">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </div>
+                <div>
+                  <h3>Zona e Rrezikshme</h3>
+                  <p>Veprimet e mëposhtme janë të pakthyeshme</p>
+                </div>
+              </div>
+              <div class="danger-actions">
+                <div class="danger-item">
+                  <div class="danger-info">
+                    <span class="danger-title">Fshi të gjitha dokumentet</span>
+                    <span class="danger-desc">Fshin të gjitha dokumentet tuaja nga sistemi. Ky veprim është i pakthyeshëm.</span>
+                  </div>
+                  <button class="settings-btn settings-btn-danger" id="delete-all-docs-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    Fshi Dokumentet
+                  </button>
+                </div>
+                <div class="danger-divider"></div>
+                <div class="danger-item">
+                  <div class="danger-info">
+                    <span class="danger-title">Fshi llogarinë</span>
+                    <span class="danger-desc">Fshin llogarinë tuaj dhe të gjitha të dhënat e lidhura me të përgjithmonë.</span>
+                  </div>
+                  <button class="settings-btn settings-btn-danger" id="delete-account-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Fshi Llogarinë
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -23,8 +23,8 @@ const Dashboard = (() => {
     bindFilter();
     bindViewToggle();
     bindQuickActions();
-    bindThemeToggle();
     bindNotifications();
+    bindSettings();
     loadDocuments();
     loadActivity();
     updateStats();
@@ -494,13 +494,212 @@ const Dashboard = (() => {
     $$('.action-btn[data-action], .view-all[data-action], .btn-primary[data-action]').forEach(btn => {
       btn.addEventListener('click', () => {
         const action = btn.dataset.action;
-        if (action === 'upload' || action === 'documents' || action === 'activity') {
+        if (action === 'upload' || action === 'documents' || action === 'activity' || action === 'settings') {
           switchSection(action);
-        } else if (action === 'settings') {
-          showToast('Cilësimet vijnë së shpejti!', 'info');
         }
       });
     });
+  }
+
+  function bindSettings() {
+    if (!$('#section-settings')) return;
+
+    loadSettingsData();
+    loadNotifPrefs();
+
+    $('#profile-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nameInput = $('#settings-name');
+      const btn = $('#save-profile-btn');
+      const name = nameInput?.value.trim();
+      if (!name) { showToast('Emri nuk mund të jetë bosh.', 'error'); return; }
+
+      btn.disabled = true;
+      btn.textContent = 'Duke ruajtur...';
+
+      try {
+        const token = getToken();
+        const res = await fetch('/api/settings/profile', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+          body: JSON.stringify({ full_name: name }),
+        });
+        const data = await res.json();
+        if (res.ok) {
+          localStorage.setItem('fullName', name);
+          loadUser();
+          showToast('Profili u ruajt me sukses!', 'success');
+        } else {
+          showToast(data.error || 'Gabim gjatë ruajtjes.', 'error');
+        }
+      } catch {
+        showToast('Gabim në rrjet.', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>Ruaj Ndryshimet';
+      }
+    });
+
+    const newPwInput = $('#new-password-settings');
+    newPwInput?.addEventListener('input', () => {
+      const val = newPwInput.value;
+      const fill = $('#strength-fill');
+      const label = $('#strength-label');
+      if (!fill || !label) return;
+      let strength = 0;
+      if (val.length >= 6) strength++;
+      if (val.length >= 10) strength++;
+      if (/[A-Z]/.test(val) && /[0-9]/.test(val)) strength++;
+      if (/[^A-Za-z0-9]/.test(val)) strength++;
+      const levels = [
+        { class: 'weak', pct: '25%', text: 'Shumë i dobët' },
+        { class: 'fair', pct: '50%', text: 'I dobët' },
+        { class: 'good', pct: '75%', text: 'I mirë' },
+        { class: 'strong', pct: '100%', text: 'Shumë i fortë' },
+      ];
+      if (!val) {
+        fill.style.width = '0%';
+        fill.className = 'strength-fill';
+        label.textContent = 'Fuqia e fjalëkalimit';
+        return;
+      }
+      const level = levels[Math.min(strength - 1, 3)] || levels[0];
+      fill.style.width = level.pct;
+      fill.className = `strength-fill ${level.class}`;
+      label.textContent = level.text;
+    });
+
+    $('#password-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const curr = $('#current-password')?.value;
+      const newPw = $('#new-password-settings')?.value;
+      const conf = $('#confirm-password-settings')?.value;
+      const btn = $('#save-password-btn');
+
+      if (!curr || !newPw || !conf) { showToast('Plotëso të gjitha fushat.', 'error'); return; }
+      if (newPw.length < 6) { showToast('Fjalëkalimi duhet të ketë minimum 6 karaktere.', 'error'); return; }
+      if (newPw !== conf) { showToast('Fjalëkalimet nuk përputhen.', 'error'); return; }
+
+      btn.disabled = true;
+      btn.textContent = 'Duke ndryshuar...';
+
+      try {
+        const token = getToken();
+        const res = await fetch('/api/settings/password', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+          body: JSON.stringify({ currentPassword: curr, newPassword: newPw }),
+        });
+        const data = await res.json();
+        if (res.ok) {
+          $('#password-form').reset();
+          const fill = $('#strength-fill');
+          if (fill) { fill.style.width = '0%'; fill.className = 'strength-fill'; }
+          const sl = $('#strength-label');
+          if (sl) sl.textContent = 'Fuqia e fjalëkalimit';
+          showToast('Fjalëkalimi u ndryshua me sukses!', 'success');
+        } else {
+          showToast(data.error || 'Gabim gjatë ndryshimit.', 'error');
+        }
+      } catch {
+        showToast('Gabim në rrjet.', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Ndrysho Fjalëkalimin';
+      }
+    });
+
+    $$('.toggle-pw').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = document.getElementById(btn.dataset.target);
+        if (!input) return;
+        input.type = input.type === 'password' ? 'text' : 'password';
+      });
+    });
+
+    $('#save-notif-btn')?.addEventListener('click', () => {
+      const prefs = {
+        uploads: $('#notif-uploads')?.checked ?? true,
+        deletes: $('#notif-deletes')?.checked ?? true,
+        storage: $('#notif-storage')?.checked ?? false,
+      };
+      localStorage.setItem('vantalyra_notif_prefs', JSON.stringify(prefs));
+      showToast('Preferencat u ruajtën!', 'success');
+    });
+
+    $('#delete-all-docs-btn')?.addEventListener('click', async () => {
+      if (!confirm('A jeni të sigurt? Të gjitha dokumentet do të fshihen përgjithmonë.')) return;
+      try {
+        const token = getToken();
+        const res = await fetch('/api/documents/all', {
+          method: 'DELETE',
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (res.ok) {
+          documents = [];
+          renderDocuments();
+          updateStats();
+          localStorage.removeItem('vantalyra_activity');
+          activityLog = [];
+          renderActivity();
+          showToast('Të gjitha dokumentet u fshinë!', 'success');
+        } else {
+          const d = await res.json();
+          showToast(d.error || 'Gabim gjatë fshirjes.', 'error');
+        }
+      } catch {
+        showToast('Gabim në rrjet.', 'error');
+      }
+    });
+
+    $('#delete-account-btn')?.addEventListener('click', async () => {
+      const confirmed = confirm('KUJDES: Llogaria juaj dhe të gjitha të dhënat do të fshihen përgjithmonë. Jeni të sigurt?');
+      if (!confirmed) return;
+      try {
+        const token = getToken();
+        const res = await fetch('/api/settings/account', {
+          method: 'DELETE',
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (res.ok) {
+          localStorage.clear();
+          window.location.href = 'login.html';
+        } else {
+          const d = await res.json();
+          showToast(d.error || 'Gabim gjatë fshirjes.', 'error');
+        }
+      } catch {
+        showToast('Gabim në rrjet.', 'error');
+      }
+    });
+  }
+
+  function loadSettingsData() {
+    const name = localStorage.getItem('fullName') || '';
+    const nameInput = $('#settings-name');
+    if (nameInput) nameInput.value = name;
+
+    const token = getToken();
+    if (!token) return;
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const emailInput = $('#settings-email');
+      if (emailInput && payload.email) emailInput.value = payload.email;
+    } catch {}
+  }
+
+  function loadNotifPrefs() {
+    try {
+      const stored = localStorage.getItem('vantalyra_notif_prefs');
+      if (!stored) return;
+      const prefs = JSON.parse(stored);
+      const up = $('#notif-uploads');
+      const del = $('#notif-deletes');
+      const st = $('#notif-storage');
+      if (up) up.checked = prefs.uploads ?? true;
+      if (del) del.checked = prefs.deletes ?? true;
+      if (st) st.checked = prefs.storage ?? false;
+    } catch {}
   }
 
   function bindThemeToggle() {

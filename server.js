@@ -464,12 +464,65 @@ app.post('/api/documents', authenticateToken, (req, res) => {
 });
 
 
+app.delete('/api/documents/all', authenticateToken, (req, res) => {
+    db.run('DELETE FROM documents WHERE user_id = ?', [req.user.id], function(err) {
+        if (err) return res.status(500).json({ error: 'Gabim gjatë fshirjes.' });
+        res.json({ message: 'Të gjitha dokumentet u fshinë.' });
+    });
+});
+
 app.delete('/api/documents/:id', authenticateToken, (req, res) => {
     const docId = req.params.id;
     db.run('DELETE FROM documents WHERE id = ? AND user_id = ?', [docId, req.user.id], function(err) {
         if (err) return res.status(500).json({ error: 'Gabim gjatë fshirjes së dokumentit.' });
         if (this.changes === 0) return res.status(404).json({ error: 'Dokumenti nuk u gjet ose nuk keni autorizim.' });
         res.json({ message: 'Dokumenti u fshi me sukses.' });
+    });
+});
+
+app.put('/api/settings/profile', authenticateToken, (req, res) => {
+    const { full_name } = req.body;
+    if (!full_name || !full_name.trim()) {
+        return res.status(400).json({ error: 'Emri nuk mund të jetë bosh.' });
+    }
+    db.run('UPDATE users SET full_name = ? WHERE id = ?', [full_name.trim(), req.user.id], function(err) {
+        if (err) return res.status(500).json({ error: 'Gabim gjatë përditësimit.' });
+        if (this.changes === 0) return res.status(404).json({ error: 'Përdoruesi nuk u gjet.' });
+        res.json({ message: 'Profili u përditësua me sukses.' });
+    });
+});
+
+app.put('/api/settings/password', authenticateToken, async (req, res) => {
+    const { currentPassword, newPassword } = req.body;
+    if (!currentPassword || !newPassword) {
+        return res.status(400).json({ error: 'Plotëso të gjitha fushat.' });
+    }
+    if (newPassword.length < 6) {
+        return res.status(400).json({ error: 'Fjalëkalimi i ri duhet të ketë të paktën 6 karaktere.' });
+    }
+    db.get('SELECT * FROM users WHERE id = ?', [req.user.id], async (err, user) => {
+        if (err) return res.status(500).json({ error: 'Gabim sistemi.' });
+        if (!user) return res.status(404).json({ error: 'Përdoruesi nuk u gjet.' });
+        const valid = await bcrypt.compare(currentPassword, user.password_hash);
+        if (!valid) return res.status(400).json({ error: 'Fjalëkalimi aktual është i gabuar.' });
+        const hashed = await bcrypt.hash(newPassword, 10);
+        db.run('UPDATE users SET password_hash = ? WHERE id = ?', [hashed, req.user.id], function(e) {
+            if (e) return res.status(500).json({ error: 'Gabim gjatë ndryshimit.' });
+            res.json({ message: 'Fjalëkalimi u ndryshua me sukses.' });
+        });
+    });
+});
+
+app.delete('/api/settings/account', authenticateToken, (req, res) => {
+    const userId = req.user.id;
+    db.serialize(() => {
+        db.run('DELETE FROM documents WHERE user_id = ?', [userId]);
+        db.run('DELETE FROM login_verification_codes WHERE user_id = ?', [userId]);
+        db.run('DELETE FROM password_reset_codes WHERE user_id = ?', [userId]);
+        db.run('DELETE FROM users WHERE id = ?', [userId], function(err) {
+            if (err) return res.status(500).json({ error: 'Gabim gjatë fshirjes.' });
+            res.json({ message: 'Llogaria u fshi me sukses.' });
+        });
     });
 });
 
