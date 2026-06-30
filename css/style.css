@@ -2808,7 +2808,6 @@ body {
   .toast {
     min-width: auto;
   }
-}
 
   .upload-circle svg {
     width: 36px;
@@ -4733,5 +4732,218 @@ body {
 
   .hapi-item {
     padding: 0 0.5rem;
+  }
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 120px 1.5rem 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-card {
+  background: var(--siperfaqja-xhama);
+  border: 1px solid var(--kufiri-xhama);
+  border-radius: 24px;
+  padding: 3.5rem 2.5rem;
+  width: 100%;
+  max-width: 450px;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.05) inset;
+  transition: border-color 0.3s ease;
+}
+
+.auth-card:hover {
+  border-color: rgba(0, 210, 255, 0.25);
+}
+
+.auth-card h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  background: var(--ngjyra-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--ngjyra-gradient);
+  color: #040812;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 30px rgba(0, 210, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.auth-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.auth-button:hover::before {
+  left: 100%;
+}
+
+.auth-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 210, 255, 0.4);
+}
+
+.auth-links {
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 0.92rem;
+}
+
+.auth-links a {
+  color: var(--theksi-kalter);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+  color: #1a5cff;
+}
+
+.auth-helper-text {
+  font-size: 0.85rem;
+  color: var(--teksti-dytesor);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+#auth-message {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+
+#auth-message.error {
+  background: rgba(255, 82, 82, 0.1);
+  border: 1px solid rgba(255, 82, 82, 0.2);
+  color: #ff5252;
+}
+
+#auth-message.success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .auth-container {
+    padding: 100px 1rem 3rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .topbar-search {
+    order: 3;
+    width: 100%;
+    flex: none;
+    margin-top: 0.2rem;
+  }
+
+  .topbar-actions {
+    margin-left: auto;
+  }
+
+  .notification-dropdown {
+    width: 290px;
+    right: -50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-banner {
+    padding: 1.8rem 1.2rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+  }
+
+  .welcome-title {
+    font-size: 1.4rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .stat-card {
+    padding: 1.2rem;
+    border-radius: 16px;
+  }
+
+  .stat-value {
+    font-size: 1.6rem;
+  }
+
+  .panel-card {
+    padding: 1.2rem;
+    border-radius: 16px;
+  }
+
+  .doc-card.list-item {
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+
+  .doc-card.list-item .doc-preview {
+    width: 50px;
+    height: 50px;
+  }
+
+  .upload-zone {
+    padding: 2.5rem 1rem;
+    border-radius: 16px;
+  }
+
+  .upload-zone h3 {
+    font-size: 1.2rem;
+  }
+
+  .upload-formats {
+    margin-bottom: 1.5rem;
   }
 }
