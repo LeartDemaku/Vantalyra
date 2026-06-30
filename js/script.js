@@ -990,16 +990,22 @@ const vëzhguesiReveal = new IntersectionObserver((entries) => {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[class*="reveal-"]').forEach(el => vëzhguesiReveal.observe(el));
 });
 
-const formaKontaktit = document.querySelector('.forma-kontaktit');
+const formaKontaktit = document.querySelector('.forma-kontaktit') || document.querySelector('.forma-kontaktit-premium');
 if (formaKontaktit) {
   formaKontaktit.addEventListener('submit', async function (e) {
     e.preventDefault();
+    const btn = formaKontaktit.querySelector('button[type="submit"]');
+    const btnText = btn ? btn.innerHTML : '';
+    if (btn) {
+      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Duke dërguar...';
+      btn.disabled = true;
+    }
     try {
       const response = await fetch(e.target.action, {
         method: e.target.method,
@@ -1007,12 +1013,24 @@ if (formaKontaktit) {
         headers: { Accept: 'application/json' },
       });
       if (response.ok) {
-        window.alert('Mesazhi u dërgua me sukses! Faleminderit që na kontaktuat.');
+        if (btn) {
+          btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dërguar me Sukses!';
+          btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        }
         e.target.reset();
+        setTimeout(() => {
+          if (btn) {
+            btn.innerHTML = btnText;
+            btn.style.background = '';
+            btn.disabled = false;
+          }
+        }, 3000);
       } else {
+        if (btn) { btn.innerHTML = btnText; btn.disabled = false; }
         window.alert('Ndodhi një problem gjatë dërgimit.');
       }
     } catch {
+      if (btn) { btn.innerHTML = btnText; btn.disabled = false; }
       window.alert('Ndodhi një gabim në rrjet.');
     }
   });
@@ -1031,6 +1049,49 @@ if (menyToggle && lidhjetNav) {
       lidhjetNav.classList.remove('aktiv');
     });
   });
+  document.addEventListener('click', (e) => {
+    if (!lidhjetNav.contains(e.target) && !menyToggle.contains(e.target)) {
+      menyToggle.classList.remove('aktiv');
+      lidhjetNav.classList.remove('aktiv');
+    }
+  });
+}
+
+const nav = document.getElementById('navigimi-kryesor');
+if (nav) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.style.background = 'rgba(4, 6, 8, 0.97)';
+      nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
+    } else {
+      nav.style.background = 'rgba(4, 6, 8, 0.85)';
+      nav.style.boxShadow = 'none';
+    }
+  }, { passive: true });
+}
+
+const navAuthBtn = document.getElementById('nav-auth-btn');
+if (navAuthBtn) {
+  const token = localStorage.getItem('token');
+  if (token) {
+    navAuthBtn.textContent = 'Paneli';
+    navAuthBtn.href = 'dashboard.html';
+  }
+}
+
+const privatesiNavLinks = document.querySelectorAll('.privatesi-nav-link');
+if (privatesiNavLinks.length > 0) {
+  const privatesiSeksionet = document.querySelectorAll('.privatesi-seksioni-bllok[id]');
+  const privatesiObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        privatesiNavLinks.forEach(link => link.classList.remove('aktive-priv'));
+        const activeLink = document.querySelector(`.privatesi-nav-link[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('aktive-priv');
+      }
+    });
+  }, { threshold: 0.3 });
+  privatesiSeksionet.forEach(seksion => privatesiObserver.observe(seksion));
 }
 
 document.addEventListener('mousemove', (e) => {

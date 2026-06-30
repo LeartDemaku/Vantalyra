@@ -3210,3 +3210,1528 @@ body {
     padding-bottom: 1.2rem;
   }
 }
+
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(26, 92, 255, 0.4), transparent);
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: -10s;
+  animation-duration: 25s;
+}
+
+.aktive-nav {
+  color: var(--theksi-kalter) !important;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--theksi-kalter);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulsi-neon 2s infinite;
+  margin-right: 6px;
+}
+
+.titulli-hero {
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 900;
+  line-height: 1.08;
+  margin-bottom: 1.2rem;
+  color: var(--teksti-kryesor);
+  letter-spacing: -2px;
+}
+
+.pershkrimi-hero {
+  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  color: var(--teksti-dytesor);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 580px;
+}
+
+.butoni-dytesar-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--teksti-dytesor);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1.2rem 2rem;
+  border: 1px solid var(--kufiri-xhama);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.03);
+}
+
+.butoni-dytesar-hero:hover {
+  color: var(--theksi-kalter);
+  border-color: rgba(0, 210, 255, 0.4);
+  background: rgba(0, 210, 255, 0.06);
+  transform: translateY(-3px);
+}
+
+.statistikat-hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--kufiri-xhama);
+}
+
+.stat-hero-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.stat-hero-numer {
+  font-size: 1.6rem;
+  font-weight: 900;
+  background: var(--ngjyra-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-hero-label {
+  font-size: 0.8rem;
+  color: var(--teksti-dytesor);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.stat-hero-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--kufiri-xhama);
+}
+
+.hero-vizual-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.hero-karta-kryesore {
+  background: rgba(15, 20, 35, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.05) inset;
+}
+
+.hero-karta-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: rgba(0,0,0,0.2);
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.hero-dot.red { background: #ff5f57; }
+.hero-dot.yellow { background: #febc2e; }
+.hero-dot.green { background: #28c840; }
+
+.hero-karta-header span {
+  color: var(--teksti-dytesor);
+  font-size: 0.82rem;
+  margin-left: auto;
+  font-weight: 600;
+}
+
+.hero-karta-permbajtja {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-file-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.hero-file-item:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(0, 210, 255, 0.2);
+  transform: translateX(4px);
+}
+
+.hero-file-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-file-icon.blue {
+  background: rgba(0, 210, 255, 0.15);
+  color: #00d2ff;
+}
+
+.hero-file-icon.purple {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+}
+
+.hero-file-icon.green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.hero-file-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero-file-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--teksti-kryesor);
+}
+
+.hero-file-size {
+  font-size: 0.75rem;
+  color: var(--teksti-dytesor);
+}
+
+.hero-file-status {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-file-status.ok {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.hero-progress-bar {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.hero-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--teksti-dytesor);
+}
+
+.hero-progress-pct {
+  color: var(--theksi-kalter);
+  font-weight: 700;
+}
+
+.hero-progress-track {
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.hero-progress-fill {
+  height: 100%;
+  width: 23%;
+  background: var(--ngjyra-gradient);
+  border-radius: 3px;
+  animation: hero-progress-anim 2s ease-out forwards;
+}
+
+@keyframes hero-progress-anim {
+  from { width: 0; }
+  to { width: 23%; }
+}
+
+.hero-kartela-fluturuese {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(15, 20, 35, 0.85);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--teksti-kryesor);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  white-space: nowrap;
+}
+
+.kartela-1 {
+  top: -18px;
+  right: -20px;
+  color: #10b981;
+  animation: levitimi-karteles 4s ease-in-out infinite;
+}
+
+.kartela-2 {
+  bottom: -18px;
+  left: -20px;
+  color: #00d2ff;
+  animation: levitimi-karteles 4s ease-in-out infinite 2s;
+}
+
+@keyframes levitimi-karteles {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.titulli-seksionit {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.titulli-seksionit h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--teksti-kryesor);
+  margin: 1rem 0;
+  letter-spacing: -1px;
+}
+
+.titulli-seksionit p {
+  color: var(--teksti-dytesor);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.seksioni-sherbimet {
+  padding: 6rem 5vw;
+  position: relative;
+}
+
+.konteniori-sherbimet {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.rrjeti-sherbimet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.karta-sherbimi {
+  background: var(--siperfaqja-xhama);
+  border: 1px solid var(--kufiri-xhama);
+  border-radius: 24px;
+  padding: 2.5rem;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.karta-sherbimi::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, rgba(0, 210, 255, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.karta-sherbimi:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 210, 255, 0.3);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.karta-sherbimi:hover::before {
+  opacity: 1;
+}
+
+.karta-featured {
+  border-color: rgba(0, 210, 255, 0.3);
+  background: rgba(0, 210, 255, 0.05);
+  box-shadow: 0 0 40px rgba(0, 210, 255, 0.08);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--ngjyra-gradient);
+  color: #040812;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ikona-sherbimit {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.ikona-blue { background: rgba(0, 210, 255, 0.15); color: #00d2ff; }
+.ikona-purple { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+.ikona-green { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.ikona-orange { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+
+.karta-sherbimi h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--teksti-kryesor);
+  margin-bottom: 1rem;
+}
+
+.karta-sherbimi p {
+  color: var(--teksti-dytesor);
+  line-height: 1.7;
+  font-size: 0.98rem;
+  margin-bottom: 1.5rem;
+}
+
+.sherbimi-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--theksi-kalter);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.seksioni-hapat {
+  padding: 6rem 5vw;
+  background: rgba(0,0,0,0.2);
+}
+
+.konteniori-hapat {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hapat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.hapi-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem;
+  position: relative;
+}
+
+.hapi-numri {
+  width: 60px;
+  height: 60px;
+  background: var(--ngjyra-gradient);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+}
+
+.hapi-numri span {
+  color: #040812;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.hapi-vija {
+  position: absolute;
+  top: 30px;
+  left: calc(50% + 30px);
+  width: calc(100% - 60px);
+  height: 2px;
+  background: linear-gradient(90deg, rgba(0, 210, 255, 0.5), rgba(0, 210, 255, 0.1));
+  z-index: 0;
+}
+
+.hapi-vija-fundme {
+  display: none;
+}
+
+.hapi-permbajtja {
+  margin-top: 1.5rem;
+}
+
+.hapi-ikona {
+  width: 52px;
+  height: 52px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--kufiri-xhama);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: var(--theksi-kalter);
+}
+
+.hapi-permbajtja h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--teksti-kryesor);
+  margin-bottom: 0.7rem;
+}
+
+.hapi-permbajtja p {
+  color: var(--teksti-dytesor);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.seksioni-cta {
+  padding: 6rem 5vw;
+}
+
+.cta-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--siperfaqja-xhama);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  border-radius: 28px;
+  padding: 5rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(0, 210, 255, 0.05);
+}
+
+.cta-permbajtja {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-permbajtja h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--teksti-kryesor);
+  margin: 1rem 0;
+  letter-spacing: -1px;
+}
+
+.cta-permbajtja p {
+  color: var(--teksti-dytesor);
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.cta-butonat {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-dekorative {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cta-orb-1 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.1), transparent 70%);
+  top: -100px;
+  right: -80px;
+  border-radius: 50%;
+}
+
+.cta-orb-2 {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(26, 92, 255, 0.1), transparent 70%);
+  bottom: -80px;
+  left: -60px;
+  border-radius: 50%;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--teksti-dytesor);
+}
+
+.faqja-hero-seksion {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 5vw 5rem;
+  text-align: center;
+  position: relative;
+}
+
+.faqja-hero-permbajtja {
+  max-width: 800px;
+  z-index: 2;
+}
+
+.faqja-hero-seksion h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--teksti-kryesor);
+  margin: 1rem 0;
+  letter-spacing: -2px;
+}
+
+.faqja-hero-seksion p {
+  color: var(--teksti-dytesor);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.rreth-vizioni {
+  padding: 4rem 5vw 6rem;
+}
+
+.rreth-konteniori {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.rreth-permbajtja h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 900;
+  color: var(--teksti-kryesor);
+  margin: 1rem 0 1.5rem;
+  letter-spacing: -1px;
+}
+
+.rreth-permbajtja p {
+  color: var(--teksti-dytesor);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.rreth-vlerat {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rreth-vlera-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  color: var(--teksti-dytesor);
+}
+
+.rreth-check {
+  width: 22px;
+  height: 22px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.rreth-stats-karta {
+  background: var(--siperfaqja-xhama);
+  border: 1px solid var(--kufiri-xhama);
+  border-radius: 24px;
+  padding: 2rem;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.rreth-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.rreth-stat-item:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(0, 210, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+.rreth-stat-ikona {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rreth-stat-ikona.blue { background: rgba(0, 210, 255, 0.15); color: #00d2ff; }
+.rreth-stat-ikona.purple { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+.rreth-stat-ikona.green { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.rreth-stat-ikona.orange { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+
+.rreth-stat-numer {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 900;
+  background: var(--ngjyra-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rreth-stat-etiketa {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--teksti-dytesor);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.rreth-karakteristikat {
+  padding: 6rem 5vw;
+  background: rgba(0,0,0,0.15);
+}
+
+.rrjeti-karakteristikave {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.karta-karakteristike {
+  background: var(--siperfaqja-xhama);
+  border: 1px solid var(--kufiri-xhama);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  transition: all 0.4s ease;
+}
+
+.karta-karakteristike:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 210, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.kk-ikona {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.kk-blue { background: rgba(0, 210, 255, 0.12); color: #00d2ff; }
+.kk-purple { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
+.kk-green { background: rgba(16, 185, 129, 0.12); color: #10b981; }
+.kk-orange { background: rgba(251, 146, 60, 0.12); color: #fb923c; }
+
+.karta-karakteristike h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--teksti-kryesor);
+  margin-bottom: 0.8rem;
+}
+
+.karta-karakteristike p {
+  color: var(--teksti-dytesor);
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+.rreth-cta-seksion {
+  padding: 4rem 5vw 8rem;
+}
+
+.kontakt-seksioni {
+  padding: 3rem 5vw 8rem;
+}
+
+.kontakt-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.kontakt-info h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 900;
+  color: var(--teksti-kryesor);
+  margin: 1rem 0 1.5rem;
+  letter-spacing: -1px;
+}
+
+.kontakt-info-kartat {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.kontakt-info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.kontakt-info-item:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(0, 210, 255, 0.2);
+  transform: translateX(4px);
+}
+
+.kontakt-info-ikona {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.kontakt-info-ikona.blue { background: rgba(0, 210, 255, 0.15); color: #00d2ff; }
+.kontakt-info-ikona.purple { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+.kontakt-info-ikona.green { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+
+.kontakt-info-titulli {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--teksti-dytesor);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.kontakt-info-vlera {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--teksti-kryesor);
+}
+
+.kontakt-llojet-kerkesave {
+  margin-top: 0.5rem;
+}
+
+.kontakt-llojet-titulli {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--teksti-dytesor);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.kontakt-llojet-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.kontakt-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.15);
+  border-radius: 50px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--theksi-kalter);
+}
+
+.kontakt-forma-wrapper {
+  position: sticky;
+  top: 100px;
+}
+
+.kontakt-forma-karta {
+  background: var(--siperfaqja-xhama);
+  border: 1px solid var(--kufiri-xhama);
+  border-radius: 24px;
+  overflow: hidden;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.kontakt-forma-header {
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 1px solid var(--kufiri-xhama);
+}
+
+.kontakt-forma-header h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--teksti-kryesor);
+  margin-bottom: 0.4rem;
+}
+
+.kontakt-forma-header p {
+  color: var(--teksti-dytesor);
+  font-size: 0.9rem;
+}
+
+.forma-kontaktit-premium {
+  padding: 2rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.forma-rresht {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.3rem;
+}
+
+.fusha-premium {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.fusha-premium label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--teksti-kryesor);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fusha-premium label svg {
+  color: var(--teksti-dytesor);
+}
+
+.fusha-premium input,
+.fusha-premium textarea,
+.fusha-premium select {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  color: var(--teksti-kryesor);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.fusha-premium input::placeholder,
+.fusha-premium textarea::placeholder {
+  color: rgba(160, 174, 192, 0.5);
+}
+
+.fusha-premium input:focus,
+.fusha-premium textarea:focus,
+.fusha-premium select:focus {
+  outline: none;
+  border-color: var(--theksi-kalter);
+  background: rgba(0, 210, 255, 0.05);
+  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.08);
+}
+
+.fusha-premium select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23a0aec0%22%20stroke-width%3D%222%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.fusha-premium select option {
+  background: #0c101a;
+  color: var(--teksti-kryesor);
+}
+
+.fusha-premium textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.butoni-kontakti {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--ngjyra-gradient);
+  color: #040812;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 30px rgba(0, 210, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.butoni-kontakti::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.butoni-kontakti:hover::before {
+  left: 100%;
+}
+
+.butoni-kontakti:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 210, 255, 0.4);
+}
+
+.privatesi-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.privatesi-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--teksti-dytesor);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.privatesi-seksioni {
+  padding: 3rem 5vw 8rem;
+}
+
+.privatesi-konteniori {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.privatesi-sidebar {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.privatesi-nav-karta {
+  background: var(--siperfaqja-xhama);
+  border: 1px solid var(--kufiri-xhama);
+  border-radius: 20px;
+  padding: 1.5rem;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+}
+
+.privatesi-nav-karta h4 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--teksti-dytesor);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--kufiri-xhama);
+}
+
+.privatesi-nav-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.privatesi-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  color: var(--teksti-dytesor);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.privatesi-nav-link:hover,
+.privatesi-nav-link.aktive-priv {
+  background: rgba(0, 210, 255, 0.08);
+  color: var(--theksi-kalter);
+}
+
+.privatesi-sigurie-karta {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.privatesi-sigurie-ikona {
+  width: 52px;
+  height: 52px;
+  background: rgba(16, 185, 129, 0.15);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+  margin: 0 auto 1rem;
+}
+
+.privatesi-sigurie-karta h4 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--teksti-kryesor);
+  margin-bottom: 0.5rem;
+}
+
+.privatesi-sigurie-karta p {
+  font-size: 0.82rem;
+  color: var(--teksti-dytesor);
+  line-height: 1.5;
+}
+
+.privatesi-permbajtja {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.privatesi-seksioni-bllok {
+  background: var(--siperfaqja-xhama);
+  border: 1px solid var(--kufiri-xhama);
+  border-radius: 20px;
+  padding: 2.5rem;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  transition: all 0.3s ease;
+}
+
+.privatesi-seksioni-bllok:hover {
+  border-color: rgba(0, 210, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.privatesi-seksioni-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--kufiri-xhama);
+}
+
+.privatesi-seksioni-ikona {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.privatesi-seksioni-ikona.blue { background: rgba(0, 210, 255, 0.12); color: #00d2ff; }
+.privatesi-seksioni-ikona.purple { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
+.privatesi-seksioni-ikona.green { background: rgba(16, 185, 129, 0.12); color: #10b981; }
+.privatesi-seksioni-ikona.orange { background: rgba(251, 146, 60, 0.12); color: #fb923c; }
+
+.privatesi-seksioni-header h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--teksti-kryesor);
+}
+
+.privatesi-tekst p {
+  color: var(--teksti-dytesor);
+  line-height: 1.8;
+  font-size: 0.98rem;
+  margin-bottom: 1rem;
+}
+
+.privatesi-tekst strong {
+  color: var(--teksti-kryesor);
+  font-weight: 700;
+}
+
+.privatesi-pika-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.privatesi-pika {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.92rem;
+  color: var(--teksti-dytesor);
+}
+
+.privatesi-pika-ikona {
+  width: 22px;
+  height: 22px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.privatesi-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-top: 1.2rem;
+  color: #10b981;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.privatesi-teknologji-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.privatesi-tek-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.2rem;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.privatesi-tek-item:hover {
+  background: rgba(0, 210, 255, 0.06);
+  border-color: rgba(0, 210, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+.privatesi-tek-emri {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 900;
+  background: var(--ngjyra-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.3rem;
+}
+
+.privatesi-tek-pershkrimi {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--teksti-dytesor);
+  font-weight: 500;
+}
+
+.titulli-graduar {
+  background: var(--ngjyra-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .rrjeti-sherbimet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rrjeti-karakteristikave {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hapat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .hapi-vija {
+    display: none;
+  }
+
+  .privatesi-konteniori {
+    grid-template-columns: 220px 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  .rreth-konteniori {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .rreth-stats-karta {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .kontakt-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .kontakt-forma-wrapper {
+    position: static;
+  }
+
+  .privatesi-konteniori {
+    grid-template-columns: 1fr;
+  }
+
+  .privatesi-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .titulli-hero {
+    font-size: 2.6rem;
+    letter-spacing: -1px;
+  }
+
+  .rrjeti-sherbimet {
+    grid-template-columns: 1fr;
+  }
+
+  .rrjeti-karakteristikave {
+    grid-template-columns: 1fr;
+  }
+
+  .hapat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rreth-stats-karta {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta-wrapper {
+    padding: 3rem 2rem;
+  }
+
+  .statistikat-hero {
+    gap: 1.2rem;
+  }
+
+  .stat-hero-numer {
+    font-size: 1.2rem;
+  }
+
+  .faqja-hero-seksion {
+    padding: 8rem 5vw 3rem;
+    min-height: auto;
+  }
+
+  .forma-rresht {
+    grid-template-columns: 1fr;
+  }
+
+  .privatesi-seksioni-bllok {
+    padding: 1.8rem 1.5rem;
+  }
+
+  .privatesi-teknologji-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .privatesi-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-kartela-fluturuese {
+    display: none;
+  }
+
+  .hero-vizual-wrapper {
+    max-width: 340px;
+  }
+
+  .butoni-dytesar-hero {
+    display: none;
+  }
+
+  .cta-butonat {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .kontakt-forma-header {
+    padding: 1.5rem;
+  }
+
+  .forma-kontaktit-premium {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistikat-hero {
+    gap: 0.8rem;
+  }
+
+  .stat-hero-divider {
+    display: none;
+  }
+
+  .rreth-stats-karta {
+    grid-template-columns: 1fr;
+  }
+
+  .privatesi-teknologji-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-karta-kryesore {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .hapi-item {
+    padding: 0 0.5rem;
+  }
+}

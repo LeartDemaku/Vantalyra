@@ -4,11 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vantalyra - Platforma premium e ruajtjes dhe menaxhimit të dokumenteve digjitale me siguri supreme dhe teknologji cloud.">
   <title>Vantalyra - Platforma e Ruajtjes Digjitale</title>
   <link rel="stylesheet" href="css/style.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Roboto:wght@300;400;700;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,9 +15,11 @@
     <div class="orbs-dekoruese">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
     </div>
   </div>
-  <nav class="navigimi-kryesor">
+
+  <nav class="navigimi-kryesor" id="navigimi-kryesor">
     <a href="index.html" class="logo">Vantalyra</a>
     <div class="meny-toggle" id="meny-toggle">
       <span></span>
@@ -26,94 +27,260 @@
       <span></span>
     </div>
     <div class="lidhjet-navigimit" id="lidhjet-navigimit">
-      <a href="index.html" class="lidhja-kthyese">Ballina</a>
+      <a href="index.html" class="lidhja-kthyese aktive-nav">Ballina</a>
       <a href="about.html" class="lidhja-kthyese">Rreth Nesh</a>
       <a href="index.html#sherbimet" class="lidhja-kthyese">Shërbimet</a>
       <a href="index.html#si-funksionon" class="lidhja-kthyese">Si Funksionon</a>
       <a href="contact.html" class="lidhja-kthyese">Kontakti</a>
-      <a href="login.html" class="butoni-kycje">Kyçu</a>
+      <a href="login.html" class="butoni-kycje" id="nav-auth-btn">Kyçu</a>
     </div>
   </nav>
 
   <main class="ekosistemi-kryesor">
     <section class="seksioni-hero">
       <div class="kontenieri-hero">
-        <div class="permbajtja-hero shfaq-ngadale">
-          <div class="badge-modern">Siguria e Gjeneratës së Re</div>
-          <h1 class="titulli-hero"><span class="tekst-gradient">Siguri Supreme</span> për Dokumentet Tuaja</h1>
-          <p class="pershkrimi-hero">Eksploroni platformën Vantalyra për menaxhimin dhe ruajtjen e aseteve tuaja
-            digjitale. Siguri, shpejtësi dhe thjeshtësi në çdo hap.
+        <div class="permbajtja-hero">
+          <div class="badge-modern shfaq-ngadale">
+            <span class="badge-dot"></span>
+            Siguria e Gjeneratës së Re
+          </div>
+          <h1 class="titulli-hero shfaq-ngadale delay-1">
+            <span class="tekst-gradient">Siguri Supreme</span><br>për Dokumentet Tuaja
+          </h1>
+          <p class="pershkrimi-hero shfaq-ngadale delay-2">
+            Eksploroni platformën Vantalyra për menaxhimin dhe ruajtjen e aseteve tuaja digjitale. Siguri, shpejtësi dhe thjeshtësi në çdo hap.
           </p>
-          <div class="veprimet-hero">
-            <a href="login.html" class="butoni-fillimit butoni-pulsues">Fillo Tani</a>
+          <div class="veprimet-hero shfaq-ngadale delay-3">
+            <a href="login.html" class="butoni-fillimit butoni-pulsues" id="hero-cta-btn">Fillo Tani</a>
+            <a href="#sherbimet" class="butoni-dytesar-hero">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              Zbulo Më Shumë
+            </a>
+          </div>
+          <div class="statistikat-hero shfaq-ngadale delay-4">
+            <div class="stat-hero-item">
+              <span class="stat-hero-numer">100%</span>
+              <span class="stat-hero-label">E Sigurt</span>
+            </div>
+            <div class="stat-hero-divider"></div>
+            <div class="stat-hero-item">
+              <span class="stat-hero-numer">Cloud</span>
+              <span class="stat-hero-label">Ruajtje</span>
+            </div>
+            <div class="stat-hero-divider"></div>
+            <div class="stat-hero-item">
+              <span class="stat-hero-numer">24/7</span>
+              <span class="stat-hero-label">Disponueshëm</span>
+            </div>
           </div>
         </div>
         <div class="vizualizimi-hero shfaq-ngadale delay-2">
-          <div class="karta-vizuale" id="karta-interaktive">
-            <img src="images/hero-bg.png" alt="Vantalyra Cloud Visual">
-            <div class="shkelqimi-karti"></div>
+          <div class="hero-vizual-wrapper">
+            <div class="hero-karta-kryesore">
+              <div class="hero-karta-header">
+                <div class="hero-dot red"></div>
+                <div class="hero-dot yellow"></div>
+                <div class="hero-dot green"></div>
+                <span>Vantalyra Cloud</span>
+              </div>
+              <div class="hero-karta-permbajtja">
+                <div class="hero-file-item">
+                  <div class="hero-file-icon blue">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                  </div>
+                  <div class="hero-file-info">
+                    <span class="hero-file-name">Dokument_2026.pdf</span>
+                    <span class="hero-file-size">2.4 MB</span>
+                  </div>
+                  <div class="hero-file-status ok">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                </div>
+                <div class="hero-file-item">
+                  <div class="hero-file-icon purple">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                  </div>
+                  <div class="hero-file-info">
+                    <span class="hero-file-name">Foto_Profile.jpg</span>
+                    <span class="hero-file-size">1.1 MB</span>
+                  </div>
+                  <div class="hero-file-status ok">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                </div>
+                <div class="hero-file-item">
+                  <div class="hero-file-icon green">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                  </div>
+                  <div class="hero-file-info">
+                    <span class="hero-file-name">Raport_Mujor.xlsx</span>
+                    <span class="hero-file-size">856 KB</span>
+                  </div>
+                  <div class="hero-file-status ok">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                </div>
+                <div class="hero-progress-bar">
+                  <div class="hero-progress-label">
+                    <span>Hapësira e përdorur</span>
+                    <span class="hero-progress-pct">23%</span>
+                  </div>
+                  <div class="hero-progress-track">
+                    <div class="hero-progress-fill"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-kartela-fluturuese kartela-1">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <span>E Mbrojtur</span>
+            </div>
+            <div class="hero-kartela-fluturuese kartela-2">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+              <span>Cloud Aktiv</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="sherbimet" class="seksioni-kartave">
-      <h2
-        style="grid-column: 1/-1; text-align: center; color: var(--theksi-kalter); margin-bottom: 2rem; font-weight: 900; font-size: 2.2rem; letter-spacing: 1px; text-transform: capitalize;">
-        Shërbimet Tona</h2>
-      <article class="karta-informuese reveal-left delay-1">
-        <h2>Kontrolli i Ngarkimeve</h2>
-        <p>Sistemi lejon sinkronizimin e shpejtë të skedarëve tuaj përmes teknologjisë drag-and-drop. Çdo dokument
-          procesohet në kohë reale dhe listohet automatikisht në arkivin tuaj personal.</p>
-      </article>
-      <article class="karta-informuese reveal-right delay-2">
-        <h2>Ruajtja e Re (Cloud)</h2>
-        <p>Dokumentet tuaja ruhen në infrastrukturën tonë të sigurt në cloud, duke eliminuar nevojën për hapësirë
-          lokale. Ju mund t'i aksesoni ato nga çdo pajisje pa humbur cilësinë origjinale.</p>
-      </article>
-      <article class="karta-informuese reveal-left delay-3">
-        <h2>Aksesi i Menjëhershëm</h2>
-        <p>Arkivi i dokumenteve është i organizuar për t'ju ofruar një pamje të qartë të çdo aseti. Klikoni mbi çdo
-          dokument për ta hapur në një dritare të re ose për ta shkarkuar sipas nevojës.</p>
-      </article>
+    <section id="sherbimet" class="seksioni-sherbimet">
+      <div class="konteniori-sherbimet">
+        <div class="titulli-seksionit shfaq-ngadale">
+          <div class="badge-modern">Çfarë Ofrojmë</div>
+          <h2>Shërbimet <span class="tekst-gradient">Tona</span></h2>
+          <p>Platforma jonë ofron gjithçka që keni nevojë për menaxhimin e dokumenteve tuaja</p>
+        </div>
+        <div class="rrjeti-sherbimet">
+          <div class="karta-sherbimi reveal-left delay-1">
+            <div class="ikona-sherbimit ikona-blue">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            </div>
+            <h3>Kontroll i Ngarkimeve</h3>
+            <p>Sistemi lejon sinkronizimin e shpejtë të skedarëve tuaj përmes teknologjisë drag-and-drop. Çdo dokument procesohet në kohë reale.</p>
+            <div class="sherbimi-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Drag &amp; Drop
+            </div>
+            <div class="sherbimi-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Shumë formante
+            </div>
+          </div>
+          <div class="karta-sherbimi reveal-right delay-2 karta-featured">
+            <div class="featured-badge">Më Popullar</div>
+            <div class="ikona-sherbimit ikona-purple">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </div>
+            <h3>Ruajtja Cloud</h3>
+            <p>Dokumentet tuaja ruhen në infrastrukturën tonë të sigurt në cloud, duke eliminuar nevojën për hapësirë lokale. Aksesoni nga kudo.</p>
+            <div class="sherbimi-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Cloudinary CDN
+            </div>
+            <div class="sherbimi-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Enkriptim AES-256
+            </div>
+          </div>
+          <div class="karta-sherbimi reveal-left delay-3">
+            <div class="ikona-sherbimit ikona-green">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+            <h3>Akses i Menjëhershëm</h3>
+            <p>Arkivi i dokumenteve është i organizuar për t'ju ofruar pamje të qartë të çdo aseti. Klikoni dhe hapni dokumentet me lehtësi.</p>
+            <div class="sherbimi-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              24/7 Disponueshëm
+            </div>
+            <div class="sherbimi-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Shpejtësi maksimale
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="si-funksionon" class="seksioni-udhezues">
-      <h2
-        style="text-align: center; color: var(--theksi-kalter); margin: 6rem 0 4rem 0; font-weight: 900; font-size: 2.5rem; letter-spacing: 2px; text-transform: capitalize;">
-        Si Funksionon Vantalyra?</h2>
-
-      <div class="hapat-container"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; max-width: 1400px; margin: 0 auto; padding: 0 5vw; margin-bottom: 8rem;">
-
-        <div class="karta-udhezues reveal-left delay-1">
-          <div class="numri-hapit">1</div>
-          <h3 class="titulli-hapit">KRIJO LLOGARINË</h3>
-          <p class="pershkrimi-hapit">Regjistrohuni me email-in tuaj në pak sekonda. Të dhënat tuaja enkriptohen
-            menjëherë me teknologjinë bcrypt për siguri maksimale.</p>
+    <section id="si-funksionon" class="seksioni-hapat">
+      <div class="konteniori-hapat">
+        <div class="titulli-seksionit shfaq-ngadale">
+          <div class="badge-modern">Proces i Thjeshtë</div>
+          <h2>Si Funksionon <span class="tekst-gradient">Vantalyra?</span></h2>
+          <p>4 hapa të thjeshtë për të filluar ruajtjen e sigurt të dokumenteve tuaja</p>
         </div>
-
-        <div class="karta-udhezues reveal-right delay-2">
-          <div class="numri-hapit">2</div>
-          <h3 class="titulli-hapit">KYÇU NË LLOGARINË TUAJ</h3>
-          <p class="pershkrimi-hapit">Hyni në hapësirën tuaj private duke përdorur kredencialet e sigurta. Sistemi ynë
-            bazohet në JWT për sesione plotësisht të mbrojtura.</p>
+        <div class="hapat-grid">
+          <div class="hapi-item reveal-left delay-1">
+            <div class="hapi-numri">
+              <span>01</span>
+            </div>
+            <div class="hapi-vija"></div>
+            <div class="hapi-permbajtja">
+              <div class="hapi-ikona">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <h3>Krijo Llogarinë</h3>
+              <p>Regjistrohuni me email-in tuaj në pak sekonda. Të dhënat tuaja enkriptohen menjëherë me bcrypt.</p>
+            </div>
+          </div>
+          <div class="hapi-item reveal-right delay-2">
+            <div class="hapi-numri">
+              <span>02</span>
+            </div>
+            <div class="hapi-vija"></div>
+            <div class="hapi-permbajtja">
+              <div class="hapi-ikona">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <h3>Kyçu me Siguri</h3>
+              <p>Hyni në hapësirën tuaj private duke përdorur kredencialet e sigurta. Sistemi bazohet në JWT.</p>
+            </div>
+          </div>
+          <div class="hapi-item reveal-left delay-3">
+            <div class="hapi-numri">
+              <span>03</span>
+            </div>
+            <div class="hapi-vija"></div>
+            <div class="hapi-permbajtja">
+              <div class="hapi-ikona">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              </div>
+              <h3>Ngarko Dokumentet</h3>
+              <p>Shtoni çdo lloj skedari përmes panelit tonë intuitiv. Integrimi me Cloudinary garanton ruajtje të sigurt.</p>
+            </div>
+          </div>
+          <div class="hapi-item reveal-right delay-4">
+            <div class="hapi-numri">
+              <span>04</span>
+            </div>
+            <div class="hapi-vija hapi-vija-fundme"></div>
+            <div class="hapi-permbajtja">
+              <div class="hapi-ikona">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              </div>
+              <h3>Menaxho &amp; Fshij</h3>
+              <p>Shikoni arkivin tuaj, shkarkoni dokumentet ose fshini ato me një klikim të thjeshtë e të sigurt.</p>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="karta-udhezues reveal-left delay-3">
-          <div class="numri-hapit">3</div>
-          <h3 class="titulli-hapit">NGARKO DOKUMENTE</h3>
-          <p class="pershkrimi-hapit">Shtoni çdo lloj skedari përmes panelit tonë intuitiv. Integrimi me Cloudinary
-            garanton ruajtje të shpejtë dhe të sigurt në cloud.</p>
+    <section class="seksioni-cta">
+      <div class="cta-wrapper shfaq-ngadale">
+        <div class="cta-permbajtja">
+          <div class="badge-modern">Gati të Filloni?</div>
+          <h2>Siguroni Dokumentet Tuaja <span class="tekst-gradient">Sot</span></h2>
+          <p>Bashkohuni me mijëra përdorues që kanë zgjedhur Vantalyra për siguri dhe lehtësi.</p>
+          <div class="cta-butonat">
+            <a href="register.html" class="butoni-fillimit butoni-pulsues" id="cta-register-btn">Krijo Llogari Falas</a>
+            <a href="about.html" class="butoni-dytesar-hero">Mëso Më Shumë</a>
+          </div>
         </div>
-
-        <div class="karta-udhezues reveal-right delay-4">
-          <div class="numri-hapit">4</div>
-          <h3 class="titulli-hapit">MENAXHO & FSHIJ</h3>
-          <p class="pershkrimi-hapit">Shikoni arkivin tuaj personal, shkarkoni dokumentet ose fshini ato që nuk ju duhen
-            më me një klikim të thjeshtë e të sigurt.</p>
+        <div class="cta-dekorative">
+          <div class="cta-orb-1"></div>
+          <div class="cta-orb-2"></div>
         </div>
-
       </div>
     </section>
   </main>
@@ -122,8 +289,17 @@
     <div class="permbajtja-fundit">
       <div class="kredencialet">
         <h3 class="logo-fundit">Vantalyra</h3>
-        <p>Infrastruktura më e sigurt dhe më e avancuar për ruajtjen dhe menaxhimin e dokumenteve tuaja në cloud. Siguri
-          supreme për asetet tuaja digjitale.</p>
+        <p>Infrastruktura më e sigurt dhe më e avancuar për ruajtjen dhe menaxhimin e dokumenteve tuaja në cloud. Siguri supreme për asetet tuaja digjitale.</p>
+        <div class="footer-social">
+          <div class="footer-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            SSL Secured
+          </div>
+          <div class="footer-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect></svg>
+            Cloud Powered
+          </div>
+        </div>
       </div>
       <div class="kolona-fundit">
         <h4>Platforma</h4>
@@ -139,6 +315,7 @@
         <ul class="lidhjet-fundit-lista">
           <li><a href="contact.html">Qendra e Kontaktit</a></li>
           <li><a href="login.html">Kyçja e Sigurt</a></li>
+          <li><a href="register.html">Regjistrim</a></li>
         </ul>
       </div>
       <div class="kolona-fundit">

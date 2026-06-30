@@ -4,16 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Politika e Privatësisë së Vantalyra - Si mbrojmë të dhënat dhe dokumentet tuaja digjitale.">
   <title>Vantalyra - Politika e Privatësisë</title>
   <link rel="stylesheet" href="css/style.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Roboto:wght@300;400;700;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="sfondi-ambiental"></div>
-  <nav class="navigimi-kryesor">
+  <div class="sfondi-ambiental">
+    <div class="orbs-dekoruese">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+  </div>
+
+  <nav class="navigimi-kryesor" id="navigimi-kryesor">
     <a href="index.html" class="logo">Vantalyra</a>
     <div class="meny-toggle" id="meny-toggle">
       <span></span>
@@ -26,34 +32,231 @@
       <a href="index.html#sherbimet" class="lidhja-kthyese">Shërbimet</a>
       <a href="index.html#si-funksionon" class="lidhja-kthyese">Si Funksionon</a>
       <a href="contact.html" class="lidhja-kthyese">Kontakti</a>
-      <a href="login.html" class="butoni-kycje">Identifikohu</a>
+      <a href="login.html" class="butoni-kycje" id="nav-auth-btn">Kyçu</a>
     </div>
   </nav>
 
-  <main class="faqja-info faqja-privatesise">
-    <header class="koka-info">
-      <h1>Politika e Privatësisë</h1>
-      <p>Protokollet e mbrojtjes së skedarëve, stabiliteti i shërbimit dhe privatësia juaj, prioriteti ynë.</p>
-    </header>
+  <main>
+    <section class="faqja-hero-seksion">
+      <div class="faqja-hero-permbajtja">
+        <div class="badge-modern shfaq-ngadale">Ligjore</div>
+        <h1 class="shfaq-ngadale delay-1">
+          Politika e <span class="tekst-gradient">Privatësisë</span>
+        </h1>
+        <p class="shfaq-ngadale delay-2">
+          Protokollet e mbrojtjes së skedarëve, stabiliteti i shërbimit dhe privatësia juaj — prioriteti ynë absolut.
+        </p>
+        <div class="privatesi-meta shfaq-ngadale delay-3">
+          <span class="privatesi-meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Përditësuar: Janar 2026
+          </span>
+          <span class="privatesi-meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            GDPR Compliant
+          </span>
+        </div>
+      </div>
+    </section>
 
-    <section class="permbajtja-info">
-      <article class="seksioni-rregullave">
-        <h2>Mbrojtja e Skedarëve dhe Llogarisë:</h2>
-        <p>Ne përdorim standardet më të fundit të sigurisë për të mbrojtur llogarinë tuaj. Fjalëkalimet tuaja ruhen të
-          koduara (hash) në databazën tonë lokale duke përdorur teknologjinë bcrypt, që do të thotë se askush, as ne,
-          nuk mund t'i shohë ato si tekst të thjeshtë. Çdo dokument që ngarkoni është i lidhur në mënyrë unike me ID-në
-          e llogarisë suaj.</p>
+    <section class="privatesi-seksioni">
+      <div class="privatesi-konteniori">
+        <div class="privatesi-sidebar shfaq-ngadale">
+          <div class="privatesi-nav-karta">
+            <h4>Navigimi i Shpejtë</h4>
+            <ul class="privatesi-nav-lista">
+              <li><a href="#mbrojtja-skedareve" class="privatesi-nav-link aktive-priv">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                Mbrojtja e Skedarëve
+              </a></li>
+              <li><a href="#izolimi-te-dhenave" class="privatesi-nav-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                Izolimi i të Dhënave
+              </a></li>
+              <li><a href="#privatesia-juaj" class="privatesi-nav-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Privatësia Juaj
+              </a></li>
+              <li><a href="#teknologjia" class="privatesi-nav-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect></svg>
+                Teknologjia
+              </a></li>
+              <li><a href="#te-drejtat-tuaja" class="privatesi-nav-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Të Drejtat Tuaja
+              </a></li>
+            </ul>
+          </div>
+          <div class="privatesi-sigurie-karta">
+            <div class="privatesi-sigurie-ikona">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h4>Të dhënat tuaja janë të sigurta</h4>
+            <p>Vantalyra nuk shet dhe nuk ndan të dhënat tuaja me palë të treta.</p>
+          </div>
+        </div>
 
-        <h2>Izolimi i të Dhënave:</h2>
-        <p>Përmes sistemit tonë backend të ndërtuar me Node.js dhe SQLite, ne garantojmë izolim të plotë të të dhënave.
-          Kjo do të thotë se vetëm ju mund të shihni dhe menaxhoni dokumentet që keni ngarkuar. Asnjë përdorues tjetër i
-          platformës nuk ka qasje në arkivin tuaj personal në Cloudinary.</p>
+        <div class="privatesi-permbajtja">
+          <div class="privatesi-seksioni-bllok reveal-right delay-1" id="mbrojtja-skedareve">
+            <div class="privatesi-seksioni-header">
+              <div class="privatesi-seksioni-ikona blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <h2>Mbrojtja e Skedarëve dhe Llogarisë</h2>
+            </div>
+            <div class="privatesi-tekst">
+              <p>Ne përdorim standardet më të fundit të sigurisë për të mbrojtur llogarinë tuaj. Fjalëkalimet tuaja ruhen të koduara (hash) në databazën tonë lokale duke përdorur teknologjinë <strong>bcrypt</strong>, që do të thotë se askush, as ne, nuk mund t'i shohë ato si tekst të thjeshtë.</p>
+              <p>Çdo dokument që ngarkoni është i lidhur në mënyrë unike me ID-në e llogarisë suaj, duke garantuar akses ekskluziv vetëm për ju.</p>
+              <div class="privatesi-pika-lista">
+                <div class="privatesi-pika">
+                  <div class="privatesi-pika-ikona">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Fjalëkalimet enkriptohen me bcrypt (12 rounds)</span>
+                </div>
+                <div class="privatesi-pika">
+                  <div class="privatesi-pika-ikona">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Sesionet mbrohen me JWT tokens</span>
+                </div>
+                <div class="privatesi-pika">
+                  <div class="privatesi-pika-ikona">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Çdo dokument ka ID unike të lidhur me llogarinë</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <h2>Privatësia juaj, Prioriteti ynë:</h2>
-        <p>Vantalyra mbledh vetëm informacionin bazë të nevojshëm për funksionimin e llogarisë tuaj (Emrin, Email-in).
-          Skedarët tuaj ruhen në infrastrukturën tonë të sigurt dhe ne zotohemi rreptësisht që të mos i shpërndajmë apo
-          përdorim të dhënat tuaja për qëllime reklamimi apo shitjeje tek palët e treta.</p>
-      </article>
+          <div class="privatesi-seksioni-bllok reveal-right delay-2" id="izolimi-te-dhenave">
+            <div class="privatesi-seksioni-header">
+              <div class="privatesi-seksioni-ikona purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <h2>Izolimi i të Dhënave</h2>
+            </div>
+            <div class="privatesi-tekst">
+              <p>Përmes sistemit tonë backend të ndërtuar me <strong>Node.js</strong> dhe <strong>SQLite</strong>, ne garantojmë izolim të plotë të të dhënave. Kjo do të thotë se vetëm ju mund të shihni dhe menaxhoni dokumentet që keni ngarkuar.</p>
+              <p>Asnjë përdorues tjetër i platformës nuk ka qasje në arkivin tuaj personal në Cloudinary. Çdo kërkesë verifikohet me token-in tuaj para çdo aksesi.</p>
+              <div class="privatesi-pika-lista">
+                <div class="privatesi-pika">
+                  <div class="privatesi-pika-ikona">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Izolim i plotë ndërmjet llogarive</span>
+                </div>
+                <div class="privatesi-pika">
+                  <div class="privatesi-pika-ikona">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Çdo API call verifikohet me JWT</span>
+                </div>
+                <div class="privatesi-pika">
+                  <div class="privatesi-pika-ikona">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>Databaza SQLite me row-level security</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="privatesi-seksioni-bllok reveal-right delay-3" id="privatesia-juaj">
+            <div class="privatesi-seksioni-header">
+              <div class="privatesi-seksioni-ikona green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <h2>Privatësia Juaj, Prioriteti Ynë</h2>
+            </div>
+            <div class="privatesi-tekst">
+              <p>Vantalyra mbledh vetëm informacionin bazë të nevojshëm për funksionimin e llogarisë suaj — <strong>Emrin</strong> dhe <strong>Email-in</strong>. Skedarët tuaj ruhen në infrastrukturën tonë të sigurt.</p>
+              <p>Ne zotohemi rreptësisht që të mos i shpërndajmë apo përdorim të dhënat tuaja për qëllime reklamimi apo shitjeje tek palët e treta. Privatësia juaj është e garantuar.</p>
+              <div class="privatesi-alert">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>Ne kurrë nuk shesim të dhënat tuaja tek palë të treta</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="privatesi-seksioni-bllok reveal-right delay-1" id="teknologjia">
+            <div class="privatesi-seksioni-header">
+              <div class="privatesi-seksioni-ikona orange">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+              </div>
+              <h2>Teknologjia e Sigurisë</h2>
+            </div>
+            <div class="privatesi-tekst">
+              <div class="privatesi-teknologji-grid">
+                <div class="privatesi-tek-item">
+                  <span class="privatesi-tek-emri">bcrypt</span>
+                  <span class="privatesi-tek-pershkrimi">Hash-im i fjalëkalimeve</span>
+                </div>
+                <div class="privatesi-tek-item">
+                  <span class="privatesi-tek-emri">JWT</span>
+                  <span class="privatesi-tek-pershkrimi">Autentifikim i sesioneve</span>
+                </div>
+                <div class="privatesi-tek-item">
+                  <span class="privatesi-tek-emri">Cloudinary</span>
+                  <span class="privatesi-tek-pershkrimi">Ruajtje e sigurt cloud</span>
+                </div>
+                <div class="privatesi-tek-item">
+                  <span class="privatesi-tek-emri">HTTPS</span>
+                  <span class="privatesi-tek-pershkrimi">Enkriptim i trafikut</span>
+                </div>
+                <div class="privatesi-tek-item">
+                  <span class="privatesi-tek-emri">Node.js</span>
+                  <span class="privatesi-tek-pershkrimi">Backend i sigurt</span>
+                </div>
+                <div class="privatesi-tek-item">
+                  <span class="privatesi-tek-emri">SQLite</span>
+                  <span class="privatesi-tek-pershkrimi">Databazë e izoluar</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="privatesi-seksioni-bllok reveal-right delay-2" id="te-drejtat-tuaja">
+            <div class="privatesi-seksioni-header">
+              <div class="privatesi-seksioni-ikona blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              </div>
+              <h2>Të Drejtat Tuaja</h2>
+            </div>
+            <div class="privatesi-tekst">
+              <p>Si përdorues i Vantalyra, keni të drejtën të aksesoni, modifikoni dhe fshini çdo të dhënë tuajën në çdo moment. Kjo përfshin:</p>
+              <div class="privatesi-pika-lista">
+                <div class="privatesi-pika">
+                  <div class="privatesi-pika-ikona">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>E drejta të aksesoni të gjitha dokumentet tuaja</span>
+                </div>
+                <div class="privatesi-pika">
+                  <div class="privatesi-pika-ikona">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>E drejta të fshini çdo dokument ose llogarinë</span>
+                </div>
+                <div class="privatesi-pika">
+                  <div class="privatesi-pika-ikona">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>E drejta të ndryshoni informacionin e profilit</span>
+                </div>
+                <div class="privatesi-pika">
+                  <div class="privatesi-pika-ikona">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span>E drejta të eksportoni të dhënat tuaja</span>
+                </div>
+              </div>
+              <p style="margin-top: 1.5rem;">Për çdo pyetje në lidhje me privatësinë tuaj, na kontaktoni përmes <a href="contact.html" style="color: var(--theksi-kalter); text-decoration: none;">faqes së kontaktit</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -61,8 +264,17 @@
     <div class="permbajtja-fundit">
       <div class="kredencialet">
         <h3 class="logo-fundit">Vantalyra</h3>
-        <p>Infrastruktura më e sigurt dhe më e avancuar për ruajtjen dhe menaxhimin e dokumenteve tuaja në cloud. Siguri
-          supreme për asetet tuaja digjitale.</p>
+        <p>Infrastruktura më e sigurt dhe më e avancuar për ruajtjen dhe menaxhimin e dokumenteve tuaja në cloud. Siguri supreme për asetet tuaja digjitale.</p>
+        <div class="footer-social">
+          <div class="footer-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            SSL Secured
+          </div>
+          <div class="footer-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect></svg>
+            Cloud Powered
+          </div>
+        </div>
       </div>
       <div class="kolona-fundit">
         <h4>Platforma</h4>
@@ -78,6 +290,7 @@
         <ul class="lidhjet-fundit-lista">
           <li><a href="contact.html">Qendra e Kontaktit</a></li>
           <li><a href="login.html">Kyçja e Sigurt</a></li>
+          <li><a href="register.html">Regjistrim</a></li>
         </ul>
       </div>
       <div class="kolona-fundit">
@@ -92,6 +305,7 @@
       <p>Created with Precision for Digital Security</p>
     </div>
   </footer>
+
   <script src="js/auth.js"></script>
   <script src="js/script.js"></script>
 </body>

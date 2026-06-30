@@ -4,16 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kontaktoni Vantalyra - Ekipin tonë për çdo pyetje, sugjerim ose ndihmë teknike. Jemi këtu për ju 24/7.">
   <title>Vantalyra - Qendra e Kontaktit</title>
   <link rel="stylesheet" href="css/style.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Roboto:wght@300;400;700;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="sfondi-ambiental"></div>
-  <nav class="navigimi-kryesor">
+  <div class="sfondi-ambiental">
+    <div class="orbs-dekoruese">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+  </div>
+
+  <nav class="navigimi-kryesor" id="navigimi-kryesor">
     <a href="index.html" class="logo">Vantalyra</a>
     <div class="meny-toggle" id="meny-toggle">
       <span></span>
@@ -23,44 +29,136 @@
     <div class="lidhjet-navigimit" id="lidhjet-navigimit">
       <a href="index.html" class="lidhja-kthyese">Ballina</a>
       <a href="about.html" class="lidhja-kthyese">Rreth Nesh</a>
+      <a href="index.html#sherbimet" class="lidhja-kthyese">Shërbimet</a>
       <a href="index.html#si-funksionon" class="lidhja-kthyese">Si Funksionon</a>
-      <a href="contact.html" class="lidhja-kthyese aktive">Kontakti</a>
-      <a href="login.html" class="butoni-kycje">Identifikohu</a>
+      <a href="contact.html" class="lidhja-kthyese aktive-nav">Kontakti</a>
+      <a href="login.html" class="butoni-kycje" id="nav-auth-btn">Kyçu</a>
     </div>
   </nav>
 
-  <main class="faqja-info faqja-kontaktit">
-    <header class="koka-info">
-      <h1>Qendra e Kontaktit</h1>
-      <p>Lidhuni drejtpërdrejt me ekipin tonë për kërkesa zhvillimi apo ndihmë operacionale.</p>
-    </header>
+  <main>
+    <section class="faqja-hero-seksion">
+      <div class="faqja-hero-permbajtja">
+        <div class="badge-modern shfaq-ngadale">Na Kontaktoni</div>
+        <h1 class="shfaq-ngadale delay-1">
+          Qendra e <span class="tekst-gradient">Kontaktit</span>
+        </h1>
+        <p class="shfaq-ngadale delay-2">
+          Lidhuni drejtpërdrejt me ekipin tonë për kërkesa zhvillimi, pyetje teknike apo ndihmë operacionale. Jemi këtu për ju.
+        </p>
+      </div>
+    </section>
 
-    <section class="permbajtja-info">
-      <div class="seksioni-rregullave">
-        <form action="https://formspree.io/f/maqlpgrn" method="POST" class="forma-kontaktit">
-          <div class="fusha-formes">
-            <label for="emri">Emri i Plotë</label>
-            <input type="text" id="emri" name="emri" required>
+    <section class="kontakt-seksioni">
+      <div class="kontakt-grid">
+        <div class="kontakt-info reveal-left delay-1">
+          <div class="badge-modern" style="margin-bottom: 2rem;">Informacioni</div>
+          <h2>Si mund t'ju <span class="tekst-gradient">Ndihmojmë?</span></h2>
+          <p style="color: var(--teksti-dytesor); line-height: 1.8; margin-bottom: 2.5rem; font-size: 1.05rem;">Ekipi ynë është i gatshëm të përgjigjet çdo pyetjeje tuaj. Nga problemet teknike deri te sugjerimet për platormën.</p>
+
+          <div class="kontakt-info-kartat">
+            <div class="kontakt-info-item">
+              <div class="kontakt-info-ikona blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div>
+                <span class="kontakt-info-titulli">Email</span>
+                <span class="kontakt-info-vlera">support@vantalyra.com</span>
+              </div>
+            </div>
+            <div class="kontakt-info-item">
+              <div class="kontakt-info-ikona purple">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div>
+                <span class="kontakt-info-titulli">Koha e Përgjigjes</span>
+                <span class="kontakt-info-vlera">Brenda 24 orëve</span>
+              </div>
+            </div>
+            <div class="kontakt-info-item">
+              <div class="kontakt-info-ikona green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div>
+                <span class="kontakt-info-titulli">Disponueshmëria</span>
+                <span class="kontakt-info-vlera">24 orë / 7 ditë</span>
+              </div>
+            </div>
           </div>
-          <div class="fusha-formes">
-            <label for="email">Adresa Elektronike</label>
-            <input type="email" id="email" name="email" required>
+
+          <div class="kontakt-llojet-kerkesave">
+            <p class="kontakt-llojet-titulli">Llojet e Kërkesave</p>
+            <div class="kontakt-llojet-lista">
+              <span class="kontakt-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Sugjerime
+              </span>
+              <span class="kontakt-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Komente
+              </span>
+              <span class="kontakt-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Pyetje Teknike
+              </span>
+              <span class="kontakt-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Raport Gabimi
+              </span>
+            </div>
           </div>
-          <div class="fusha-formes">
-            <label for="koncepti">Lloji i Kërkesës</label>
-            <select id="koncepti" name="koncepti" required>
-              <option value="" disabled selected>Zgjidh llojin e kërkesës</option>
-              <option value="Sugjerim">Sugjerim</option>
-              <option value="Koment">Koment</option>
-              <option value="Pyetje Teknike">Pyetje Teknike</option>
-            </select>
+        </div>
+
+        <div class="kontakt-forma-wrapper reveal-right delay-2">
+          <div class="kontakt-forma-karta">
+            <div class="kontakt-forma-header">
+              <h3>Dërgoni Mesazhin</h3>
+              <p>Plotësoni formularin dhe do t'ju kontaktojmë sa më shpejt</p>
+            </div>
+            <form id="forma-kontaktit" action="https://formspree.io/f/maqlpgrn" method="POST" class="forma-kontaktit-premium">
+              <div class="forma-rresht">
+                <div class="fusha-premium">
+                  <label for="emri">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Emri i Plotë
+                  </label>
+                  <input type="text" id="emri" name="emri" placeholder="Shkruani emrin tuaj" required autocomplete="name">
+                </div>
+                <div class="fusha-premium">
+                  <label for="email">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    Adresa Elektronike
+                  </label>
+                  <input type="email" id="email" name="email" placeholder="email@example.com" required autocomplete="email">
+                </div>
+              </div>
+              <div class="fusha-premium">
+                <label for="koncepti">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  Lloji i Kërkesës
+                </label>
+                <select id="koncepti" name="koncepti" required>
+                  <option value="" disabled selected>Zgjidhni llojin e kërkesës</option>
+                  <option value="Sugjerim">Sugjerim</option>
+                  <option value="Koment">Koment</option>
+                  <option value="Pyetje Teknike">Pyetje Teknike</option>
+                  <option value="Raport Gabimi">Raport Gabimi</option>
+                </select>
+              </div>
+              <div class="fusha-premium">
+                <label for="mesazhi">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  Mesazhi Juaj
+                </label>
+                <textarea id="mesazhi" name="mesazhi" rows="5" placeholder="Shkruani mesazhin tuaj këtu..." required></textarea>
+              </div>
+              <button type="submit" class="butoni-kontakti" id="submit-kontakt">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                Dërgoni Mesazhin
+              </button>
+            </form>
           </div>
-          <div class="fusha-formes">
-            <label for="mesazhi">Përmbajtja</label>
-            <textarea id="mesazhi" name="mesazhi" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="butoni-fillimit mb-0">Dërgo Mesazhin</button>
-        </form>
+        </div>
       </div>
     </section>
   </main>
@@ -69,8 +167,17 @@
     <div class="permbajtja-fundit">
       <div class="kredencialet">
         <h3 class="logo-fundit">Vantalyra</h3>
-        <p>Infrastruktura më e sigurt dhe më e avancuar për ruajtjen dhe menaxhimin e dokumenteve tuaja në cloud. Siguri
-          supreme për asetet tuaja digjitale.</p>
+        <p>Infrastruktura më e sigurt dhe më e avancuar për ruajtjen dhe menaxhimin e dokumenteve tuaja në cloud. Siguri supreme për asetet tuaja digjitale.</p>
+        <div class="footer-social">
+          <div class="footer-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            SSL Secured
+          </div>
+          <div class="footer-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect></svg>
+            Cloud Powered
+          </div>
+        </div>
       </div>
       <div class="kolona-fundit">
         <h4>Platforma</h4>
@@ -86,6 +193,7 @@
         <ul class="lidhjet-fundit-lista">
           <li><a href="contact.html">Qendra e Kontaktit</a></li>
           <li><a href="login.html">Kyçja e Sigurt</a></li>
+          <li><a href="register.html">Regjistrim</a></li>
         </ul>
       </div>
       <div class="kolona-fundit">
@@ -100,6 +208,7 @@
       <p>Created with Precision for Digital Security</p>
     </div>
   </footer>
+
   <script src="js/auth.js"></script>
   <script src="js/script.js"></script>
 </body>
